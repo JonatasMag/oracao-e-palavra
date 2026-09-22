@@ -1,0 +1,18 @@
+# Oração e Palavra — site inicial
+
+Arquivos:
+- index.html
+- logo-oracao-e-palavra.png
+- qr-comunidade.png
+
+ANTES DE PUBLICAR:
+1. Substituir o # do botão "Entrar na comunidade" pelo link oficial do WhatsApp.
+2. Confirmar se o QR Code enviado corresponde ao mesmo link da comunidade.
+3. Conectar o formulário de oração a um backend seguro/CRM ou canal oficial.
+4. Definir política de privacidade e consentimento para dados enviados pelos visitantes.
+5. Conectar os cards de vídeos aos links reais do YouTube.
+6. Para atendimento humano, definir equipe, horários, protocolo de acolhimento e encaminhamento.
+7. Para produção, usar HTTPS e proteção contra spam/abuso.
+
+Sugestão de domínio:
+oracaoepalavra.com.br (verificar disponibilidade antes do registro)

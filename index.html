@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Oração e Palavra — um espaço de acolhimento, oração, Palavra de Deus, pregações e comunhão cristã. Atos 6:4.">
+<meta name="theme-color" content="#0b2345">
+<title>Oração e Palavra | Atos 6:4</title>
+<style>
+:root{
+  --navy:#0b2345; --navy2:#12345f; --gold:#c9962d; --gold2:#e4bd67;
+  --white:#fff; --ink:#172033; --muted:#647084; --soft:#f5f7fa;
+  --line:#e7ebf0; --shadow:0 18px 50px rgba(11,35,69,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1160px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;text-align:center;padding:9px 15px;font-size:.88rem}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.brand img{width:56px;height:56px;object-fit:contain}
+.brand span{font-size:1rem;letter-spacing:.02em}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:.9rem;font-weight:700}
+.navlinks a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:14px 21px;border-radius:999px;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{transform:translateY(-2px);background:#b78420}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-outline{border-color:#cbd4df;color:var(--navy);background:#fff}
+.hero{background:linear-gradient(135deg,#fff 0%,#f7f9fc 65%,#fff 100%);padding:72px 0 64px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+h1{font-family:Georgia,serif;font-size:clamp(2.6rem,5vw,5.1rem);line-height:1.03;color:var(--navy);margin:12px 0 20px}
+h1 em{color:var(--gold);font-style:normal}
+.lead{font-size:1.17rem;color:#4b586d;max-width:680px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:12px;margin:27px 0}
+.verse{border-left:4px solid var(--gold);padding:14px 0 14px 18px;font-family:Georgia,serif;color:var(--navy);font-size:1.03rem}
+.hero-card{background:#fff;border:1px solid var(--line);border-radius:28px;padding:20px;box-shadow:var(--shadow)}
+.hero-card img{border-radius:18px;width:100%}
+.section{padding:82px 0}
+.section.alt{background:var(--soft)}
+.section-head{max-width:760px;margin:0 auto 40px;text-align:center}
+.eyebrow{color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}
+h2{font-family:Georgia,serif;color:var(--navy);font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:10px 0 15px}
+.section-head p{color:var(--muted);font-size:1.05rem}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:27px;box-shadow:0 10px 30px rgba(11,35,69,.05)}
+.card .icon{font-size:1.8rem;margin-bottom:12px}
+.card h3{color:var(--navy);margin:5px 0 8px}
+.card p{color:var(--muted);margin:0}
+.whatsapp{background:linear-gradient(135deg,var(--navy),#163f70);color:#fff;border-radius:30px;padding:42px;display:grid;grid-template-columns:1.35fr .65fr;gap:35px;align-items:center;box-shadow:var(--shadow)}
+.whatsapp h2{color:#fff}
+.whatsapp p{color:#dce7f5}
+.qr{background:#fff;padding:14px;border-radius:18px;max-width:210px;margin:auto}
+.qr img{width:100%}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.step{position:relative;padding:28px;background:#fff;border:1px solid var(--line);border-radius:22px}
+.num{width:40px;height:40px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:900;margin-bottom:14px}
+.video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.video{background:#0b2345;color:#fff;border-radius:22px;overflow:hidden;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:25px;position:relative}
+.video:before{content:"▶";position:absolute;top:22px;left:22px;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:1.2rem}
+.video small{color:#c9d7e9}.video h3{margin:6px 0 0}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
+.form-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow)}
+label{display:block;font-weight:800;color:var(--navy);font-size:.9rem;margin:14px 0 7px}
+input,textarea,select{width:100%;border:1px solid #d7dee8;border-radius:13px;padding:13px 14px;font:inherit;outline:none;background:#fff}
+input:focus,textarea:focus,select:focus{border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,150,45,.12)}
+textarea{min-height:145px;resize:vertical}
+.notice{font-size:.82rem;color:#6a7483;background:#f7f8fa;padding:12px 14px;border-radius:12px;margin-top:15px}
+.chatbox{background:#fff;border:1px solid var(--line);border-radius:26px;overflow:hidden;box-shadow:var(--shadow)}
+.chathead{background:var(--navy);color:#fff;padding:18px 22px;font-weight:800}
+.chatbody{padding:22px;min-height:250px;background:#f8fafc}
+.bubble{max-width:82%;padding:13px 15px;border-radius:17px;margin:10px 0;background:#fff;border:1px solid var(--line)}
+.bubble.you{margin-left:auto;background:#edf3fb}
+.chatinput{display:flex;gap:8px;padding:15px;border-top:1px solid var(--line)}
+.chatinput input{margin:0}
+.about{display:grid;grid-template-columns:.8fr 1.2fr;gap:45px;align-items:center}
+.portrait{background:linear-gradient(135deg,#eaf0f7,#fff);border-radius:28px;padding:35px;text-align:center}
+.portrait-mark{width:150px;height:150px;border-radius:50%;margin:auto;display:grid;place-items:center;background:var(--navy);color:#fff;font-family:Georgia,serif;font-size:3rem;border:7px solid var(--gold)}
+.signature{font-family:Georgia,serif;color:var(--navy);font-size:1.35rem;margin-top:18px}
+.quote{font-family:Georgia,serif;font-size:1.35rem;color:var(--navy);padding:20px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+footer{background:#071a33;color:#cbd8e8;padding:55px 0 25px}
+.footergrid{display:grid;grid-template-columns:1.4fr .8fr .8fr;gap:35px}
+footer h3{color:#fff}
+footer a:hover{color:#fff}
+.small{font-size:.83rem;color:#91a3b9}
+.floating{position:fixed;right:20px;bottom:20px;z-index:30;background:var(--gold);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;box-shadow:0 12px 35px rgba(0,0,0,.2)}
+@media(max-width:900px){
+ .hero-grid,.about,.form-grid,.whatsapp{grid-template-columns:1fr}
+ .grid3,.steps,.video-grid{grid-template-columns:1fr}
+ .navlinks{display:none}
+ .whatsapp{padding:30px}
+ .hero{padding-top:48px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+
+<nav>
+  <div class="container navin">
+    <a class="brand" href="#inicio">
+      <img src="logo-oracao-e-palavra.png" alt="Logo Oração e Palavra">
+      <span>ORAÇÃO E PALAVRA</span>
+    </a>
+    <div class="navlinks">
+      <a href="#palavra">A Palavra</a>
+      <a href="#oracao">Peça Oração</a>
+      <a href="#pregacoes">Pregações</a>
+      <a href="#comunidade">Comunidade</a>
+      <a href="#pastor">Sobre</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero" id="inicio">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">Um lugar para voltar ao essencial</div>
+      <h1>Você não precisa atravessar <em>isso sozinho.</em></h1>
+      <p class="lead">Aqui você encontra oração, acolhimento e a Palavra de Deus. Um espaço para quem está cansado, ferido, procurando direção ou simplesmente deseja ouvir a verdade de Jesus Cristo.</p>
+      <div class="verse">“Vinde a mim, todos os que estais cansados e oprimidos, e eu vos aliviarei.” — Mateus 11:28</div>
+      <div class="hero-actions">
+        <a class="btn btn-gold" href="#oracao">🙏 Quero pedir oração</a>
+        <a class="btn btn-navy" href="#palavra">📖 Quero ouvir a Palavra</a>
+      </div>
+    </div>
+    <div class="hero-card"><img src="logo-oracao-e-palavra.png" alt="Oração e Palavra — Atos 6:4"></div>
+  </div>
+</section>
+
+<section class="section" id="palavra">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Jesus Cristo no centro</div>
+      <h2>A Palavra que alcança onde ninguém consegue chegar</h2>
+      <p>Não queremos apenas produzir conteúdo. Queremos apontar para Cristo, anunciar o Evangelho e ajudar pessoas a conhecerem a verdade de Deus.</p>
+    </div>
+    <div class="grid3">
+      <article class="card"><div class="icon">✝️</div><h3>Salvação</h3><p>“Porque todo aquele que invocar o nome do Senhor será salvo.” — Romanos 10:13</p></article>
+      <article class="card"><div class="icon">📖</div><h3>Verdade</h3><p>“E conhecereis a verdade, e a verdade vos libertará.” — João 8:32</p></article>
+      <article class="card"><div class="icon">🕊️</div><h3>Esperança</h3><p>Em Cristo há perdão, reconciliação, direção e uma nova vida. — 2 Coríntios 5:17</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="comunidade">
+  <div class="container">
+    <div class="whatsapp">
+      <div>
+        <div class="eyebrow">Comunidade Oração e Palavra</div>
+        <h2>Receba uma Palavra de Deus todos os dias.</h2>
+        <p>Entre na nossa comunidade do WhatsApp para receber mensagens, versículos, devocionais, convites para momentos de oração e conteúdos que apontam para Jesus.</p>
+        <!-- SUBSTITUA O # PELO LINK REAL DA COMUNIDADE DO WHATSAPP -->
+        <a class="btn btn-gold" href="#" onclick="alert('Insira aqui o link oficial da comunidade do WhatsApp.');return false;">Entrar na comunidade →</a>
+      </div>
+      <div class="qr"><img src="qr-comunidade.png" alt="QR Code da comunidade"></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="oracao">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Você pode falar</div>
+      <h2>Peça oração. Desabafe. Compartilhe sua necessidade.</h2>
+      <p>Às vezes, o primeiro passo é encontrar alguém que escute. Conte apenas o que se sentir confortável em compartilhar.</p>
+    </div>
+    <div class="form-grid">
+      <form class="form-card" onsubmit="enviarPedido(event)">
+        <h3 style="color:var(--navy);margin-top:0">🙏 Pedido de oração</h3>
+        <label>Seu nome</label><input id="nome" required placeholder="Como podemos chamar você?">
+        <label>Seu pedido</label><textarea id="pedido" required placeholder="Escreva seu pedido de oração..."></textarea>
+        <label>Como prefere ser atendido?</label>
+        <select id="contato"><option>WhatsApp</option><option>Mensagem</option><option>Não preciso de retorno</option></select>
+        <button class="btn btn-gold" style="margin-top:18px;width:100%">Enviar pedido</button>
+        <div class="notice">Este protótipo não armazena seus dados. Para produção, conecte este formulário a um sistema seguro de atendimento e defina uma política de privacidade clara.</div>
+      </form>
+
+      <div class="form-card">
+        <h3 style="color:var(--navy);margin-top:0">💬 Atendimento e acolhimento</h3>
+        <p>O projeto pode ter uma equipe pastoral treinada para acolher, orar, orientar e encaminhar situações que necessitem de atendimento especializado.</p>
+        <div class="quote">“Levai as cargas uns dos outros, e assim cumprireis a lei de Cristo.” — Gálatas 6:2</div>
+        <p><strong>Importante:</strong> o atendimento espiritual não substitui cuidados médicos, psicológicos, jurídicos ou serviços de emergência. Em situação de risco imediato, procure o serviço de emergência adequado da sua região.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Uma jornada simples</div>
+      <h2>Comece por onde você está</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="num">1</div><h3>Fale com Deus</h3><p>Abra o coração em oração. Não é preciso usar palavras bonitas; é preciso sinceridade.</p></div>
+      <div class="step"><div class="num">2</div><h3>Ouça a Palavra</h3><p>Conheça o Evangelho, examine as Escrituras e permita que a verdade de Cristo confronte e console.</p></div>
+      <div class="step"><div class="num">3</div><h3>Caminhe com pessoas</h3><p>Não caminhe sozinho. Faça parte de uma comunidade cristã e encontre irmãos para orar com você.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pregacoes">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Pregações e orientações</div>
+      <h2>Conteúdos para ouvir, refletir e praticar</h2>
+      <p>Área preparada para receber vídeos do YouTube, testemunhos, séries de mensagens e estudos bíblicos.</p>
+    </div>
+    <div class="video-grid">
+      <article class="video"><small>PREGAÇÃO</small><h3>Quando Jesus está no barco</h3><p>Fé em meio à tempestade.</p></article>
+      <article class="video"><small>ESTUDO BÍBLICO</small><h3>Oração e ministério da Palavra</h3><p>Atos 6:4 e a prioridade apostólica.</p></article>
+      <article class="video"><small>PALAVRA DE HOJE</small><h3>Uma palavra para o seu coração</h3><p>Mensagens curtas para o cotidiano.</p></article>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Chat de acolhimento</div>
+      <h2>Você pode começar a conversar</h2>
+      <p>Na versão definitiva, este espaço poderá ser conectado a uma equipe de atendimento ou a um assistente virtual com respostas bíblicas cuidadosamente revisadas.</p>
+    </div>
+    <div class="chatbox">
+      <div class="chathead">Oração e Palavra • Acolhimento</div>
+      <div class="chatbody" id="chatbody">
+        <div class="bubble">Olá. Que bom ter você aqui. Como podemos acolher você hoje?</div>
+        <div class="bubble">Se quiser, escreva: <strong>“Preciso de oração”</strong>, <strong>“Quero conhecer Jesus”</strong> ou <strong>“Estou passando por um momento difícil”</strong>.</div>
+      </div>
+      <div class="chatinput">
+        <input id="chatmsg" placeholder="Escreva uma mensagem..." onkeydown="if(event.key==='Enter')chat()">
+        <button class="btn btn-navy" onclick="chat()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pastor">
+  <div class="container about">
+    <div class="portrait">
+      <div class="portrait-mark">JH</div>
+      <div class="signature">Pr. Jonatas H. Magalhães</div>
+      <p style="color:var(--muted)">Responsável pelo projeto Oração e Palavra</p>
+    </div>
+    <div>
+      <div class="eyebrow">Quem está por trás deste chamado</div>
+      <h2>Um projeto de serviço ao Reino de Deus</h2>
+      <p>O <strong>Pr. Jonatas H. Magalhães</strong> apresenta este projeto como uma resposta a um chamado que atravessa sua vida: anunciar Jesus Cristo, ensinar a Palavra de Deus, orar pelas pessoas e servir com amor.</p>
+      <p>Com décadas de caminhada cristã e experiência pastoral, liderança ministerial e formação em áreas de gestão, aprendizagem, inovação e terapias integrativas, o propósito aqui não é colocar o homem no centro, mas criar uma ponte para que pessoas encontrem <strong>Jesus Cristo e a verdade das Escrituras</strong>.</p>
+      <p class="quote">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</p>
+    </div>
+  </div>
+</section>
+
+<section class="section alt">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Nossa direção</div>
+      <h2>O propósito é simples</h2>
+      <p><strong>Orar. Pregar. Acolher. Ensinar. Conduzir pessoas a Cristo.</strong></p>
+    </div>
+    <div class="grid3">
+      <article class="card"><h3>🙏 Oração</h3><p>Interceder por vidas e apresentar necessidades diante de Deus.</p></article>
+      <article class="card"><h3>📖 Palavra</h3><p>Anunciar o Evangelho e ensinar a Bíblia com fidelidade ao texto.</p></article>
+      <article class="card"><h3>❤️ Acolhimento</h3><p>Receber pessoas com respeito, escuta, amor cristão e responsabilidade.</p></article>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container footergrid">
+    <div>
+      <h3>Oração e Palavra</h3>
+      <p>Um espaço digital de oração, Palavra, acolhimento e anúncio do Evangelho de Jesus Cristo.</p>
+      <p class="small">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</p>
+    </div>
+    <div><h3>Navegação</h3><p><a href="#palavra">A Palavra</a></p><p><a href="#oracao">Peça Oração</a></p><p><a href="#pregacoes">Pregações</a></p><p><a href="#comunidade">Comunidade</a></p></div>
+    <div><h3>Projeto</h3><p>Pr. Jonatas H. Magalhães</p><p class="small">© 2026 Oração e Palavra. Conteúdo cristão.</p></div>
+  </div>
+</footer>
+
+<a class="floating" href="#oracao" aria-label="Pedir oração">🙏</a>
+
+<script>
+function enviarPedido(e){
+  e.preventDefault();
+  const nome=document.getElementById('nome').value.trim();
+  const pedido=document.getElementById('pedido').value.trim();
+  const contato=document.getElementById('contato').value;
+  alert("Obrigado, "+nome+". Seu pedido foi preparado para envio. Na versão publicada, este botão será conectado ao canal seguro de atendimento.");
+  // Em produção: enviar para backend seguro / CRM / WhatsApp Business API.
+}
+function chat(){
+  const input=document.getElementById('chatmsg');
+  const body=document.getElementById('chatbody');
+  const msg=input.value.trim();
+  if(!msg)return;
+  const you=document.createElement('div'); you.className='bubble you'; you.textContent=msg; body.appendChild(you);
+  input.value='';
+  setTimeout(()=>{
+    const b=document.createElement('div'); b.className='bubble';
+    b.textContent='Obrigado por confiar em nós. Na versão definitiva, este chat será conectado à equipe de acolhimento. Enquanto isso, você pode deixar seu pedido de oração no formulário acima.';
+    body.appendChild(b); body.scrollTop=body.scrollHeight;
+  },450);
+}
+</script>
+</body>
+</html>
