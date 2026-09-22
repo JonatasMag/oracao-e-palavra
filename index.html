@@ -173,15 +173,58 @@ footer a:hover{color:#fff}
       <p>Às vezes, o primeiro passo é encontrar alguém que escute. Conte apenas o que se sentir confortável em compartilhar.</p>
     </div>
     <div class="form-grid">
-      <form class="form-card" onsubmit="enviarPedido(event)">
-        <h3 style="color:var(--navy);margin-top:0">🙏 Pedido de oração</h3>
-        <label>Seu nome</label><input id="nome" required placeholder="Como podemos chamar você?">
-        <label>Seu pedido</label><textarea id="pedido" required placeholder="Escreva seu pedido de oração..."></textarea>
-        <label>Como prefere ser atendido?</label>
-        <select id="contato"><option>WhatsApp</option><option>Mensagem</option><option>Não preciso de retorno</option></select>
-        <button class="btn btn-gold" style="margin-top:18px;width:100%">Enviar pedido</button>
-        <div class="notice">Este protótipo não armazena seus dados. Para produção, conecte este formulário a um sistema seguro de atendimento e defina uma política de privacidade clara.</div>
-      </form>
+     <form class="form-card" onsubmit="enviarPedido(event)">
+  <h3 style="color:var(--navy);margin-top:0">🙏 Pedido de oração</h3>
+
+  <label>Seu nome</label>
+  <input id="nome" maxlength="120" placeholder="Como podemos chamar você?">
+
+  <label>Como podemos orar por você?</label>
+  <textarea
+    id="pedido"
+    required
+    maxlength="5000"
+    placeholder="Escreva seu pedido de oração..."
+  ></textarea>
+
+  <label>Você gostaria que alguém da equipe entrasse em contato?</label>
+  <select id="preferencia_contato">
+    <option value="nao">Não preciso de retorno</option>
+    <option value="whatsapp">Sim, pelo WhatsApp</option>
+    <option value="email">Sim, por e-mail</option>
+  </select>
+
+  <label>Contato (se desejar retorno)</label>
+  <input
+    id="contato"
+    maxlength="150"
+    placeholder="WhatsApp ou e-mail"
+  >
+
+  <label style="display:flex;gap:10px;align-items:flex-start;margin-top:18px">
+    <input
+      type="checkbox"
+      id="consentimento"
+      required
+      style="width:auto;margin-top:4px"
+    >
+    <span>
+      Autorizo o armazenamento destas informações para que a equipe
+      possa receber meu pedido de oração e, se solicitado, entrar em contato.
+    </span>
+  </label>
+
+  <button
+    id="btnPedido"
+    class="btn btn-gold"
+    type="submit"
+    style="margin-top:18px;width:100%"
+  >
+    🙏 Enviar pedido de oração
+  </button>
+
+  <div id="mensagemPedido" class="notice" style="display:none"></div>
+</form>
 
       <div class="form-card">
         <h3 style="color:var(--navy);margin-top:0">💬 Atendimento e acolhimento</h3>
@@ -290,15 +333,150 @@ footer a:hover{color:#fff}
 
 <a class="floating" href="#oracao" aria-label="Pedir oração">🙏</a>
 
-<script>
-function enviarPedido(e){
+<script type="module">
+
+import { createClient } from
+'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+const SUPABASE_URL =
+'https://drvqdsgceyembhtiqdhm.supabase.co';
+
+const SUPABASE_PUBLISHABLE_KEY =
+'sb_publishable_JY7-kbPZ_-G9aEPYvlbB6Q_4w8c1rI-';
+
+const supabase = createClient(
+  SUPABASE_URL,
+  SUPABASE_PUBLISHABLE_KEY
+);
+
+window.enviarPedido = async function(e){
+
   e.preventDefault();
-  const nome=document.getElementById('nome').value.trim();
-  const pedido=document.getElementById('pedido').value.trim();
-  const contato=document.getElementById('contato').value;
-  alert("Obrigado, "+nome+". Seu pedido foi preparado para envio. Na versão publicada, este botão será conectado ao canal seguro de atendimento.");
-  // Em produção: enviar para backend seguro / CRM / WhatsApp Business API.
+
+  const nome =
+    document.getElementById('nome').value.trim();
+
+  const pedido =
+    document.getElementById('pedido').value.trim();
+
+  const contato =
+    document.getElementById('contato').value.trim();
+
+  const preferencia =
+    document.getElementById('preferencia_contato').value;
+
+  const consentimento =
+    document.getElementById('consentimento').checked;
+
+  const botao =
+    document.getElementById('btnPedido');
+
+  const mensagem =
+    document.getElementById('mensagemPedido');
+
+  if(!consentimento){
+
+    mensagem.style.display = 'block';
+
+    mensagem.textContent =
+      'Para enviar seu pedido, é necessário autorizar o armazenamento das informações.';
+
+    return;
+  }
+
+  botao.disabled = true;
+  botao.textContent = 'Enviando...';
+
+  mensagem.style.display = 'none';
+
+  const { error } = await supabase
+    .from('pedidos_oracao')
+    .insert({
+      nome: nome || null,
+      pedido: pedido,
+      contato: contato || null,
+      preferencia_contato: preferencia,
+      consentimento: true
+    });
+
+  if(error){
+
+    console.error(error);
+
+    mensagem.style.display = 'block';
+
+    mensagem.textContent =
+      'Não foi possível enviar seu pedido agora. Por favor, tente novamente em alguns instantes.';
+
+    botao.disabled = false;
+    botao.textContent = '🙏 Enviar pedido de oração';
+
+    return;
+  }
+
+  mensagem.style.display = 'block';
+
+  mensagem.innerHTML =
+    '<strong>Seu pedido foi recebido. 🙏</strong><br><br>' +
+    'Nossa equipe poderá apresentar sua necessidade diante de Deus. ' +
+    'Que o Senhor fortaleça seu coração.';
+
+  document.getElementById('nome').value = '';
+  document.getElementById('pedido').value = '';
+  document.getElementById('contato').value = '';
+  document.getElementById('preferencia_contato').value = 'nao';
+  document.getElementById('consentimento').checked = false;
+
+  botao.disabled = false;
+  botao.textContent = '🙏 Enviar pedido de oração';
+};
+
+function chat(){
+
+  const input =
+    document.getElementById('chatmsg');
+
+  const body =
+    document.getElementById('chatbody');
+
+  const msg =
+    input.value.trim();
+
+  if(!msg) return;
+
+  const you =
+    document.createElement('div');
+
+  you.className = 'bubble you';
+
+  you.textContent = msg;
+
+  body.appendChild(you);
+
+  input.value = '';
+
+  setTimeout(()=>{
+
+    const b =
+      document.createElement('div');
+
+    b.className = 'bubble';
+
+    b.textContent =
+      'Obrigado por confiar em nós. Enquanto nossa equipe não estiver disponível, você pode deixar seu pedido de oração no formulário acima.';
+
+    body.appendChild(b);
+
+    body.scrollTop =
+      body.scrollHeight;
+
+  },450);
 }
+
+window.chat = chat;
+
+</script>
+  
 function chat(){
   const input=document.getElementById('chatmsg');
   const body=document.getElementById('chatbody');
