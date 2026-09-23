@@ -108,13 +108,17 @@ footer a:hover{color:#fff}
       <img src="logo-oracao-e-palavra.png" alt="Logo Oração e Palavra">
       <span>ORAÇÃO E PALAVRA</span>
     </a>
-    <div class="navlinks">
-      <a href="#palavra">A Palavra</a>
-      <a href="#oracao">Peça Oração</a>
-      <a href="#pregacoes">Pregações</a>
-      <a href="#comunidade">Comunidade</a>
-      <a href="#pastor">Sobre</a>
-      <a href="/central.html">🔐 Central</a>
+<button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">
+  ☰
+</button>
+
+<div class="navlinks" id="navlinks">
+  <a href="#palavra" onclick="fecharMenu()">A Palavra</a>
+  <a href="#oracao" onclick="fecharMenu()">Peça Oração</a>
+  <a href="#pregacoes" onclick="fecharMenu()">Pregações</a>
+  <a href="#comunidade" onclick="fecharMenu()">Comunidade</a>
+  <a href="#pastor" onclick="fecharMenu()">Sobre</a>
+  <a href="/central.html">🔐 Central</a>
     </div>
   </div>
 </nav>
