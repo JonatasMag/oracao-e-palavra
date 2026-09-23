@@ -3,25 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Central de Oração | Oração e Palavra</title>
 
 <style>
 :root{
-  --navy:#071a33;
-  --navy2:#0d2a4d;
+  --navy:#0b1f3a;
+  --navy2:#102d50;
   --gold:#c9a227;
-  --gold2:#e0bd45;
+  --gold2:#e1c45a;
   --white:#ffffff;
-  --bg:#f4f7fb;
-  --line:#dfe6ee;
-  --text:#26364a;
-  --muted:#6d7c8f;
-  --green:#218739;
-  --orange:#b86b00;
-  --blue:#1769aa;
-  --gray:#65727f;
-  --shadow:0 12px 35px rgba(7,26,51,.10);
+  --light:#f4f6f9;
+  --gray:#667085;
+  --border:#dfe4ea;
+  --green:#1f8f55;
+  --blue:#2764b8;
+  --yellow:#b88900;
+  --red:#a33a3a;
+  --shadow:0 10px 30px rgba(11,31,58,.10);
 }
 
 *{
@@ -31,41 +29,31 @@
 body{
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
-  background:var(--bg);
-  color:var(--text);
-}
-
-a{
-  color:inherit;
-  text-decoration:none;
+  background:var(--light);
+  color:#1d2939;
 }
 
 .topbar{
   background:var(--navy);
   color:#fff;
   text-align:center;
-  padding:10px 18px;
+  padding:10px 15px;
   font-size:14px;
+  letter-spacing:.2px;
 }
-
-.container{
-  width:min(1200px,92%);
-  margin:auto;
-}
-
-/* HEADER */
 
 header{
   background:#fff;
-  border-bottom:1px solid var(--line);
-  box-shadow:0 3px 12px rgba(0,0,0,.04);
+  border-bottom:1px solid var(--border);
+  padding:18px 25px;
 }
 
 .header-inner{
-  min-height:92px;
+  max-width:1200px;
+  margin:auto;
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:20px;
 }
 
@@ -76,48 +64,42 @@ header{
 }
 
 .brand img{
-  width:70px;
-  height:70px;
+  width:65px;
+  height:65px;
   object-fit:contain;
 }
 
 .brand-title{
   color:var(--navy);
+  font-weight:700;
+  font-size:22px;
 }
 
-.brand-title strong{
-  display:block;
-  font-family:Georgia,serif;
-  font-size:20px;
-  letter-spacing:.5px;
-}
-
-.brand-title span{
-  display:block;
-  margin-top:4px;
+.brand-subtitle{
   color:var(--gold);
   font-size:12px;
-  font-weight:bold;
-  letter-spacing:1.5px;
+  font-weight:700;
+  letter-spacing:1.2px;
+  margin-top:3px;
 }
 
 .user-area{
   display:flex;
   align-items:center;
   gap:12px;
-}
-
-.user-name{
-  color:var(--muted);
   font-size:14px;
 }
 
+.user-email{
+  color:var(--gray);
+}
+
 .btn{
-  border:0;
-  border-radius:10px;
-  padding:11px 17px;
+  border:none;
+  border-radius:8px;
+  padding:10px 16px;
   cursor:pointer;
-  font-weight:bold;
+  font-weight:700;
   transition:.2s;
 }
 
@@ -125,439 +107,400 @@ header{
   transform:translateY(-1px);
 }
 
-.btn-navy{
-  background:var(--navy);
-  color:#fff;
-}
-
 .btn-gold{
   background:var(--gold);
   color:#fff;
 }
 
-.btn-light{
-  background:#eef3f8;
+.btn-gold:hover{
+  background:#b28d16;
+}
+
+.btn-outline{
+  background:#fff;
+  border:1px solid var(--border);
   color:var(--navy);
 }
 
 .btn-danger{
-  background:#8d2020;
-  color:#fff;
+  background:#f8e9e9;
+  color:var(--red);
+  border:1px solid #e8c5c5;
 }
-
-.btn:disabled{
-  opacity:.6;
-  cursor:not-allowed;
-  transform:none;
-}
-
-/* MAIN */
 
 main{
-  padding:35px 0 60px;
+  max-width:1200px;
+  margin:35px auto;
+  padding:0 20px 60px;
 }
 
 .page-title{
-  margin-bottom:28px;
-}
-
-.eyebrow{
-  color:var(--gold);
-  font-size:12px;
-  font-weight:bold;
-  text-transform:uppercase;
-  letter-spacing:1.5px;
+  margin-bottom:25px;
 }
 
 .page-title h1{
-  margin:7px 0;
+  margin:0;
   color:var(--navy);
-  font-family:Georgia,serif;
-  font-size:34px;
+  font-size:30px;
 }
 
 .page-title p{
-  margin:0;
-  color:var(--muted);
+  color:var(--gray);
+  margin:7px 0 0;
 }
-
-/* CARDS */
 
 .stats{
   display:grid;
   grid-template-columns:repeat(4,1fr);
   gap:18px;
-  margin-bottom:28px;
+  margin-bottom:25px;
 }
 
 .stat{
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:16px;
-  padding:22px;
+  border-radius:14px;
+  padding:20px;
   box-shadow:var(--shadow);
+  border:1px solid var(--border);
 }
 
 .stat-label{
-  color:var(--muted);
+  color:var(--gray);
   font-size:13px;
-  margin-bottom:9px;
+  margin-bottom:8px;
 }
 
 .stat-number{
+  font-size:30px;
+  font-weight:700;
   color:var(--navy);
-  font-size:32px;
-  font-weight:bold;
 }
-
-.stat.gold{
-  border-top:4px solid var(--gold);
-}
-
-.stat.blue{
-  border-top:4px solid var(--blue);
-}
-
-.stat.orange{
-  border-top:4px solid var(--orange);
-}
-
-.stat.green{
-  border-top:4px solid var(--green);
-}
-
-/* PANEL */
 
 .panel{
   background:#fff;
-  border:1px solid var(--line);
-  border-radius:18px;
+  border-radius:14px;
   box-shadow:var(--shadow);
+  border:1px solid var(--border);
   overflow:hidden;
 }
 
 .panel-header{
-  padding:20px 22px;
-  border-bottom:1px solid var(--line);
+  padding:20px;
+  border-bottom:1px solid var(--border);
   display:flex;
   justify-content:space-between;
   align-items:center;
   gap:15px;
+  flex-wrap:wrap;
 }
 
 .panel-header h2{
   margin:0;
   color:var(--navy);
-  font-family:Georgia,serif;
-  font-size:21px;
+  font-size:20px;
 }
 
-.controls{
+.filters{
   display:flex;
   gap:10px;
   flex-wrap:wrap;
 }
 
-.controls input,
-.controls select{
-  border:1px solid var(--line);
-  border-radius:9px;
+.filters input,
+.filters select{
+  border:1px solid var(--border);
+  border-radius:8px;
   padding:10px 12px;
   font-size:14px;
+  outline:none;
   background:#fff;
 }
 
-/* TABLE */
+.filters input:focus,
+.filters select:focus{
+  border-color:var(--gold);
+}
 
 .table-wrap{
-  width:100%;
   overflow-x:auto;
 }
 
 table{
   width:100%;
   border-collapse:collapse;
-  min-width:760px;
+  min-width:950px;
 }
 
 th{
-  text-align:left;
-  background:#f7f9fc;
-  color:var(--navy);
+  background:#f8fafc;
+  color:#475467;
   font-size:12px;
   text-transform:uppercase;
-  letter-spacing:.6px;
-  padding:14px 18px;
-  border-bottom:1px solid var(--line);
+  letter-spacing:.4px;
+  text-align:left;
+  padding:14px 16px;
+  border-bottom:1px solid var(--border);
 }
 
 td{
-  padding:15px 18px;
-  border-bottom:1px solid var(--line);
+  padding:15px 16px;
+  border-bottom:1px solid #edf0f3;
   vertical-align:middle;
   font-size:14px;
 }
 
 tr:hover td{
-  background:#fbfcfe;
+  background:#fcfdff;
 }
 
 .request-preview{
-  max-width:400px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  color:var(--text);
+  max-width:360px;
+  color:#475467;
+  line-height:1.4;
 }
 
-.date{
-  color:var(--muted);
-  white-space:nowrap;
+.responsavel{
+  color:var(--navy);
+  font-weight:700;
 }
 
-.status{
-  display:inline-flex;
-  align-items:center;
+.sem-responsavel{
+  color:#98a2b3;
+  font-style:italic;
+}
+
+.badge{
+  display:inline-block;
   padding:6px 10px;
-  border-radius:30px;
-  font-size:12px;
-  font-weight:bold;
+  border-radius:999px;
+  font-size:11px;
+  font-weight:700;
   white-space:nowrap;
 }
 
-.status-novo{
-  background:#eaf2ff;
-  color:#1769aa;
+.badge-novo{
+  background:#fff4cc;
+  color:var(--yellow);
 }
 
-.status-oracao{
-  background:#fff4df;
-  color:#a46200;
+.badge-oracao{
+  background:#e8f1ff;
+  color:var(--blue);
 }
 
-.status-acompanhamento{
-  background:#eaf8ee;
-  color:#218739;
+.badge-acompanhamento{
+  background:#e6f6ed;
+  color:var(--green);
 }
 
-.status-encerrado{
-  background:#edf0f3;
-  color:#65727f;
+.badge-encerrado{
+  background:#eef0f3;
+  color:#667085;
 }
 
 .empty{
-  padding:45px 20px;
   text-align:center;
-  color:var(--muted);
+  padding:45px 20px;
+  color:var(--gray);
 }
 
-/* MODAL */
+.loading{
+  text-align:center;
+  padding:40px;
+  color:var(--gray);
+}
 
 .modal-backdrop{
-  display:none;
   position:fixed;
   inset:0;
-  background:rgba(3,15,29,.62);
-  z-index:100;
-  padding:25px;
-  overflow:auto;
+  background:rgba(5,15,30,.65);
+  display:none;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  z-index:1000;
 }
 
 .modal-backdrop.show{
   display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 .modal{
-  width:min(760px,100%);
   background:#fff;
-  border-radius:18px;
-  box-shadow:0 25px 80px rgba(0,0,0,.28);
-  overflow:hidden;
+  width:100%;
+  max-width:720px;
+  max-height:90vh;
+  overflow-y:auto;
+  border-radius:16px;
+  box-shadow:0 25px 60px rgba(0,0,0,.25);
 }
 
-.modal-head{
-  background:var(--navy);
-  color:#fff;
-  padding:20px 24px;
+.modal-header{
+  padding:20px 22px;
+  border-bottom:1px solid var(--border);
   display:flex;
-  align-items:center;
   justify-content:space-between;
+  align-items:center;
   gap:15px;
 }
 
-.modal-head h3{
+.modal-header h2{
   margin:0;
-  font-family:Georgia,serif;
+  color:var(--navy);
+  font-size:20px;
 }
 
 .close{
-  border:0;
-  background:rgba(255,255,255,.12);
-  color:#fff;
+  background:#f2f4f7;
+  border:none;
   width:36px;
   height:36px;
   border-radius:50%;
   cursor:pointer;
   font-size:20px;
+  color:#475467;
 }
 
 .modal-body{
-  padding:24px;
+  padding:22px;
 }
 
-.detail{
+.detail-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
   margin-bottom:20px;
 }
 
+.detail{
+  background:#f8fafc;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:13px;
+}
+
 .detail-label{
-  color:var(--muted);
-  font-size:12px;
+  font-size:11px;
+  color:#667085;
   text-transform:uppercase;
-  letter-spacing:.7px;
-  font-weight:bold;
-  margin-bottom:7px;
+  font-weight:700;
+  margin-bottom:5px;
 }
 
 .detail-value{
-  color:var(--text);
-  line-height:1.6;
+  color:#1d2939;
+  line-height:1.45;
+  word-break:break-word;
 }
 
-.request-full{
-  background:#f7f9fc;
-  border:1px solid var(--line);
-  padding:16px;
-  border-radius:12px;
-  white-space:pre-wrap;
+.field{
+  margin-top:18px;
 }
 
-.form-group{
-  margin-top:20px;
-}
-
-.form-group label{
+.field label{
   display:block;
   color:var(--navy);
-  font-weight:bold;
-  margin-bottom:8px;
+  font-weight:700;
   font-size:14px;
+  margin-bottom:7px;
 }
 
-.form-group select,
-.form-group textarea{
+.field select,
+.field textarea{
   width:100%;
-  border:1px solid var(--line);
-  border-radius:10px;
-  padding:12px;
-  font:inherit;
+  border:1px solid var(--border);
+  border-radius:9px;
+  padding:11px 12px;
+  font-family:inherit;
+  font-size:14px;
+  outline:none;
+  background:#fff;
 }
 
-.form-group textarea{
+.field select:focus,
+.field textarea:focus{
+  border-color:var(--gold);
+}
+
+.field textarea{
   min-height:120px;
   resize:vertical;
 }
 
-.modal-actions{
+.modal-footer{
+  padding:18px 22px;
+  border-top:1px solid var(--border);
   display:flex;
   justify-content:flex-end;
   gap:10px;
-  margin-top:22px;
   flex-wrap:wrap;
 }
 
-.message{
+.notice{
   display:none;
-  padding:12px 14px;
-  border-radius:10px;
   margin-top:15px;
+  padding:12px 14px;
+  border-radius:8px;
   font-size:14px;
 }
 
-.message.success{
+.notice.success{
   display:block;
-  background:#eaf8ee;
-  color:#176b2b;
+  background:#e8f6ee;
+  color:#17663c;
+  border:1px solid #b9e3ca;
 }
 
-.message.error{
+.notice.error{
   display:block;
-  background:#fdecec;
-  color:#8d2020;
+  background:#fbecec;
+  color:#8c2d2d;
+  border:1px solid #ecc4c4;
 }
 
-/* LOADING */
-
-.loading{
+.footer{
   text-align:center;
-  padding:40px;
-  color:var(--muted);
+  color:#98a2b3;
+  font-size:12px;
+  padding:25px;
 }
-
-/* FOOTER */
-
-footer{
-  background:var(--navy);
-  color:#cbd8e8;
-  padding:28px 0;
-  text-align:center;
-  font-size:13px;
-}
-
-footer strong{
-  color:#fff;
-}
-
-/* RESPONSIVE */
 
 @media(max-width:900px){
-
   .stats{
     grid-template-columns:repeat(2,1fr);
   }
+}
 
+@media(max-width:650px){
   .header-inner{
-    flex-direction:column;
     align-items:flex-start;
-    padding:15px 0;
   }
 
   .user-area{
-    width:100%;
-    justify-content:space-between;
-  }
-
-  .panel-header{
-    align-items:flex-start;
     flex-direction:column;
+    align-items:flex-end;
   }
-
-}
-
-@media(max-width:560px){
 
   .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .detail-grid{
     grid-template-columns:1fr;
   }
 
+  .brand-title{
+    font-size:18px;
+  }
+
   .brand img{
-    width:60px;
-    height:60px;
+    width:52px;
+    height:52px;
   }
 
-  .page-title h1{
-    font-size:28px;
+  main{
+    margin-top:25px;
   }
-
-  .modal-backdrop{
-    padding:10px;
-  }
-
-  .modal-body{
-    padding:18px;
-  }
-
 }
 </style>
 </head>
@@ -569,415 +512,182 @@ footer strong{
 </div>
 
 <header>
+  <div class="header-inner">
 
-  <div class="container header-inner">
+    <div class="brand">
+      <img src="/logo-oracao-e-palavra.png" alt="Oração e Palavra">
 
-    <a href="/" class="brand">
-
-      <img
-        src="logo-oracao-e-palavra.png"
-        alt="Oração e Palavra"
-      >
-
-      <div class="brand-title">
-        <strong>Oração e Palavra</strong>
-        <span>CENTRAL DE ORAÇÃO</span>
+      <div>
+        <div class="brand-title">Oração e Palavra</div>
+        <div class="brand-subtitle">CENTRAL DE ORAÇÃO</div>
       </div>
-
-    </a>
+    </div>
 
     <div class="user-area">
-
-      <div class="user-name" id="usuarioLogado">
-        Verificando acesso...
-      </div>
-
-      <button
-        class="btn btn-light"
-        onclick="sair()"
-      >
-        Sair
-      </button>
-
+      <span id="usuarioEmail" class="user-email">Verificando acesso...</span>
+      <button class="btn btn-outline" onclick="sair()">Sair</button>
     </div>
 
   </div>
-
 </header>
-
 
 <main>
 
-  <div class="container">
-
-    <section class="page-title">
-
-      <div class="eyebrow">
-        Administração pastoral
-      </div>
-
-      <h1>
-        🙏 Central de Intercessão
-      </h1>
-
-      <p>
-        Receba, acompanhe e apresente diante de Deus os pedidos de oração.
-      </p>
-
-    </section>
-
-
-    <!-- INDICADORES -->
-
-    <section class="stats">
-
-      <div class="stat gold">
-        <div class="stat-label">
-          Total de pedidos
-        </div>
-
-        <div
-          class="stat-number"
-          id="totalPedidos"
-        >
-          0
-        </div>
-      </div>
-
-
-      <div class="stat blue">
-        <div class="stat-label">
-          Novos pedidos
-        </div>
-
-        <div
-          class="stat-number"
-          id="novosPedidos"
-        >
-          0
-        </div>
-      </div>
-
-
-      <div class="stat orange">
-        <div class="stat-label">
-          Em oração
-        </div>
-
-        <div
-          class="stat-number"
-          id="oracaoPedidos"
-        >
-          0
-        </div>
-      </div>
-
-
-      <div class="stat green">
-        <div class="stat-label">
-          Em acompanhamento
-        </div>
-
-        <div
-          class="stat-number"
-          id="acompanhamentoPedidos"
-        >
-          0
-        </div>
-      </div>
-
-    </section>
-
-
-    <!-- PEDIDOS -->
-
-    <section class="panel">
-
-      <div class="panel-header">
-
-        <h2>
-          Pedidos de oração
-        </h2>
-
-        <div class="controls">
-
-          <input
-            id="busca"
-            type="search"
-            placeholder="Pesquisar..."
-            oninput="renderizarTabela()"
-          >
-
-          <select
-            id="filtroStatus"
-            onchange="renderizarTabela()"
-          >
-
-            <option value="todos">
-              Todos os status
-            </option>
-
-            <option value="novo">
-              Novos
-            </option>
-
-            <option value="em_oracao">
-              Em oração
-            </option>
-
-            <option value="em_acompanhamento">
-              Em acompanhamento
-            </option>
-
-            <option value="encerrado">
-              Encerrados
-            </option>
-
-          </select>
-
-          <button
-            class="btn btn-navy"
-            onclick="carregarPedidos()"
-          >
-            🔄 Atualizar
-          </button>
-
-        </div>
-
-      </div>
-
-
-      <div class="table-wrap">
-
-        <table>
-
-          <thead>
-
-            <tr>
-
-              <th>
-                Nome
-              </th>
-
-              <th>
-                Pedido
-              </th>
-
-              <th>
-                Status
-              </th>
-
-              <th>
-                Data
-              </th>
-
-              <th>
-                Ação
-              </th>
-
-            </tr>
-
-          </thead>
-
-          <tbody id="tabelaPedidos">
-
-            <tr>
-              <td
-                colspan="5"
-                class="loading"
-              >
-                Carregando pedidos...
-              </td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
-
-    </section>
-
+  <div class="page-title">
+    <h1>🙏 Central de Intercessão</h1>
+    <p>Receba, acompanhe e direcione os pedidos de oração.</p>
   </div>
 
-</main>
+  <section class="stats">
 
+    <div class="stat">
+      <div class="stat-label">Total de pedidos</div>
+      <div id="totalPedidos" class="stat-number">0</div>
+    </div>
 
-<footer>
+    <div class="stat">
+      <div class="stat-label">Novos pedidos</div>
+      <div id="novosPedidos" class="stat-number">0</div>
+    </div>
 
-  <div class="container">
+    <div class="stat">
+      <div class="stat-label">Em oração</div>
+      <div id="oracaoPedidos" class="stat-number">0</div>
+    </div>
 
-    <strong>Oração e Palavra</strong>
+    <div class="stat">
+      <div class="stat-label">Em acompanhamento</div>
+      <div id="acompanhamentoPedidos" class="stat-number">0</div>
+    </div>
 
-    <br>
+  </section>
 
-    “Mas nós perseveraremos na oração e no ministério da palavra.”
-    — Atos 6:4
+  <section class="panel">
 
-  </div>
+    <div class="panel-header">
 
-</footer>
+      <h2>Pedidos de oração</h2>
 
+      <div class="filters">
 
-<!-- MODAL DO PEDIDO -->
+        <input
+          id="busca"
+          type="search"
+          placeholder="🔎 Buscar..."
+          oninput="renderizarTabela()"
+        >
 
-<div
-  class="modal-backdrop"
-  id="modalBackdrop"
->
+        <select id="filtroStatus" onchange="renderizarTabela()">
+          <option value="">Todos os status</option>
+          <option value="novo">Novo</option>
+          <option value="em_oracao">Em oração</option>
+          <option value="em_acompanhamento">Em acompanhamento</option>
+          <option value="encerrado">Encerrado</option>
+        </select>
 
-  <div class="modal">
+        <button class="btn btn-outline" onclick="carregarDados()">
+          🔄 Atualizar
+        </button>
 
-    <div class="modal-head">
-
-      <h3>
-        Detalhes do pedido
-      </h3>
-
-      <button
-        class="close"
-        onclick="fecharModal()"
-      >
-        ×
-      </button>
+      </div>
 
     </div>
 
+    <div id="tabelaContainer" class="table-wrap">
+      <div class="loading">Carregando pedidos...</div>
+    </div>
+
+  </section>
+
+</main>
+
+<div class="footer">
+  Oração e Palavra • Central de Intercessão
+</div>
+
+<!-- MODAL -->
+<div id="modalBackdrop" class="modal-backdrop" onclick="fecharModalFora(event)">
+
+  <div class="modal">
+
+    <div class="modal-header">
+      <h2>🙏 Detalhes do pedido</h2>
+      <button class="close" onclick="fecharModal()">×</button>
+    </div>
 
     <div class="modal-body">
 
-      <div class="detail">
+      <div class="detail-grid">
 
-        <div class="detail-label">
-          Nome
+        <div class="detail">
+          <div class="detail-label">Nome</div>
+          <div id="detNome" class="detail-value">—</div>
         </div>
 
-        <div
-          class="detail-value"
-          id="modalNome"
-        >
-          —
+        <div class="detail">
+          <div class="detail-label">Data</div>
+          <div id="detData" class="detail-value">—</div>
         </div>
 
-      </div>
-
-
-      <div class="detail">
-
-        <div class="detail-label">
-          Data do pedido
+        <div class="detail">
+          <div class="detail-label">Contato</div>
+          <div id="detContato" class="detail-value">—</div>
         </div>
 
-        <div
-          class="detail-value"
-          id="modalData"
-        >
-          —
+        <div class="detail">
+          <div class="detail-label">Preferência de contato</div>
+          <div id="detPreferencia" class="detail-value">—</div>
         </div>
 
       </div>
 
-
       <div class="detail">
-
-        <div class="detail-label">
-          Contato
-        </div>
-
-        <div
-          class="detail-value"
-          id="modalContato"
-        >
-          —
-        </div>
-
+        <div class="detail-label">Pedido de oração</div>
+        <div id="detPedido" class="detail-value" style="white-space:pre-wrap;">—</div>
       </div>
 
+      <div class="field">
+        <label for="detResponsavel">👤 Responsável pelo pedido</label>
 
-      <div class="detail">
-
-        <div class="detail-label">
-          Pedido de oração
-        </div>
-
-        <div
-          class="detail-value request-full"
-          id="modalPedido"
-        >
-          —
-        </div>
-
-      </div>
-
-
-      <div class="form-group">
-
-        <label for="novoStatus">
-          Alterar status
-        </label>
-
-        <select id="novoStatus">
-
-          <option value="novo">
-            🆕 Novo
-          </option>
-
-          <option value="em_oracao">
-            🙏 Em oração
-          </option>
-
-          <option value="em_acompanhamento">
-            🤝 Em acompanhamento
-          </option>
-
-          <option value="encerrado">
-            ✅ Encerrado
-          </option>
-
+        <select id="detResponsavel">
+          <option value="">— Não atribuído —</option>
         </select>
-
       </div>
 
+      <div class="field">
+        <label for="detStatus">📌 Status do atendimento</label>
 
-      <div class="form-group">
+        <select id="detStatus">
+          <option value="novo">Novo</option>
+          <option value="em_oracao">Em oração</option>
+          <option value="em_acompanhamento">Em acompanhamento</option>
+          <option value="encerrado">Encerrado</option>
+        </select>
+      </div>
 
-        <label for="observacoes">
-          Observações internas
-        </label>
+      <div class="field">
+        <label for="detObservacoes">📝 Observações internas</label>
 
         <textarea
-          id="observacoes"
+          id="detObservacoes"
           maxlength="5000"
-          placeholder="Anotações internas da equipe de oração..."
+          placeholder="Anotações internas da equipe..."
         ></textarea>
-
       </div>
 
+      <div id="mensagemModal" class="notice"></div>
 
-      <div
-        id="mensagemModal"
-        class="message"
-      ></div>
+    </div>
 
+    <div class="modal-footer">
 
-      <div class="modal-actions">
+      <button class="btn btn-outline" onclick="fecharModal()">
+        Cancelar
+      </button>
 
-        <button
-          class="btn btn-light"
-          onclick="fecharModal()"
-        >
-          Cancelar
-        </button>
-
-        <button
-          class="btn btn-gold"
-          id="btnSalvar"
-          onclick="salvarAlteracoes()"
-        >
-          💾 Salvar alterações
-        </button>
-
-      </div>
+      <button id="btnSalvar" class="btn btn-gold" onclick="salvarPedido()">
+        💾 Salvar alterações
+      </button>
 
     </div>
 
@@ -985,172 +695,165 @@ footer strong{
 
 </div>
 
-
 <script type="module">
 
-import {
-  createClient
-} from
-'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
-
-
-/* =====================================================
-   CONFIGURAÇÃO SUPABASE
-   ===================================================== */
+import { createClient }
+from 'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
 
 const SUPABASE_URL =
-'https://drvqdsgceyembhtiqdhm.supabase.co';
-
-
-/*
-   COLE AQUI A SUA CHAVE PÚBLICA DO SUPABASE.
-
-   IMPORTANTE:
-   Use somente a chave:
-
-   sb_publishable_...
-
-   NUNCA coloque aqui:
-   sb_secret_...
-   service_role
-*/
+  'https://drvqdsgceyembhtiqdhm.supabase.co';
 
 const SUPABASE_PUBLISHABLE_KEY =
-'sb_publishable_JY7-kbPZ_-G9aEPYvlbB6Q_4w8c1rI-';
+  'COLE_AQUI_SUA_SB_PUBLISHABLE_KEY';
 
-
-const supabase =
-createClient(
+const supabase = createClient(
   SUPABASE_URL,
   SUPABASE_PUBLISHABLE_KEY
 );
 
-
-/* =====================================================
-   VARIÁVEIS
-   ===================================================== */
-
 let pedidos = [];
-
+let equipe = [];
 let pedidoSelecionado = null;
 
-
-/* =====================================================
+/* =========================
    INICIALIZAÇÃO
-   ===================================================== */
+========================= */
 
 async function iniciar(){
 
   const {
-    data: sessionData,
-    error: sessionError
+    data: { session }
   } = await supabase.auth.getSession();
 
-
-  if(sessionError){
-
-    console.error(sessionError);
-
-    window.location.href =
-    '/central.html';
-
-    return;
-
-  }
-
-
-  const session =
-  sessionData.session;
-
-
   if(!session){
-
-    window.location.href =
-    '/central.html';
-
+    window.location.href = '/central.html';
     return;
-
   }
 
+  document.getElementById('usuarioEmail').textContent =
+    session.user.email || 'Equipe';
 
-  const usuario =
-  session.user;
+  const { data: membro, error: erroMembro } =
+    await supabase
+      .from('equipe_oracao')
+      .select('user_id,nome,funcao,ativo')
+      .eq('user_id', session.user.id)
+      .eq('ativo', true)
+      .maybeSingle();
 
-
-  /*
-     Verifica se o usuário pertence à equipe
-     e está ativo.
-  */
-
-  const {
-    data: equipe,
-    error: equipeError
-  } =
-  await supabase
-    .from('equipe_oracao')
-    .select('user_id,nome,funcao,ativo')
-    .eq('user_id', usuario.id)
-    .eq('ativo', true)
-    .maybeSingle();
-
-
-  if(
-    equipeError ||
-    !equipe
-  ){
+  if(erroMembro || !membro){
 
     await supabase.auth.signOut();
 
-    alert(
-      'Seu usuário não possui autorização para acessar a Central de Oração.'
-    );
+    alert('Seu usuário não está autorizado a acessar a Central.');
 
-    window.location.href =
-    '/central.html';
+    window.location.href = '/central.html';
 
     return;
-
   }
 
-
-  document.getElementById(
-    'usuarioLogado'
-  ).textContent =
-  equipe.nome ||
-  usuario.email;
-
-
-  await carregarPedidos();
-
+  await carregarEquipe();
+  await carregarDados();
 }
 
+/* =========================
+   CARREGAR EQUIPE
+========================= */
 
-/* =====================================================
-   CARREGAR PEDIDOS
-   ===================================================== */
+async function carregarEquipe(){
 
-async function carregarPedidos(){
+  const { data, error } =
+    await supabase
+      .from('equipe_oracao')
+      .select('user_id,nome,funcao,ativo')
+      .eq('ativo', true)
+      .order('nome', { ascending:true });
 
-  const tabela =
-  document.getElementById(
-    'tabelaPedidos'
-  );
+  if(error){
 
+    console.error(error);
 
-  tabela.innerHTML = `
-    <tr>
-      <td colspan="5" class="loading">
-        Carregando pedidos...
-      </td>
-    </tr>
-  `;
+    equipe = [];
 
+    return;
+  }
+
+  equipe = data || [];
+
+  preencherResponsaveis();
+}
+
+/* =========================
+   RESPONSÁVEIS
+========================= */
+
+function preencherResponsaveis(){
+
+  const select =
+    document.getElementById('detResponsavel');
+
+  select.innerHTML =
+    '<option value="">— Não atribuído —</option>';
+
+  equipe.forEach(membro => {
+
+    const option =
+      document.createElement('option');
+
+    option.value = membro.user_id;
+
+    const nome =
+      membro.nome ||
+      'Membro da equipe';
+
+    const funcao =
+      membro.funcao
+        ? ` — ${formatarFuncao(membro.funcao)}`
+        : '';
+
+    option.textContent =
+      nome + funcao;
+
+    select.appendChild(option);
+
+  });
+}
+
+function formatarFuncao(funcao){
+
+  const nomes = {
+    administrador:'Administrador',
+    lider:'Líder',
+    intercessor:'Intercessor'
+  };
+
+  return nomes[funcao] || funcao;
+}
+
+function nomeResponsavel(userId){
+
+  if(!userId){
+    return null;
+  }
+
+  const membro =
+    equipe.find(item => item.user_id === userId);
+
+  return membro
+    ? (membro.nome || 'Membro da equipe')
+    : 'Responsável não encontrado';
+}
+
+/* =========================
+   PEDIDOS
+========================= */
+
+async function carregarDados(){
 
   const {
     data,
     error
-  } =
-  await supabase
+  } = await supabase
     .from('pedidos_oracao')
     .select(`
       id,
@@ -1164,662 +867,442 @@ async function carregarPedidos(){
       responsavel,
       observacoes_internas
     `)
-    .order(
-      'created_at',
-      {
-        ascending:false
-      }
-    );
-
+    .order('created_at', { ascending:false });
 
   if(error){
 
     console.error(error);
 
-    tabela.innerHTML = `
-      <tr>
-        <td colspan="5" class="empty">
-          Não foi possível carregar os pedidos.
-        </td>
-      </tr>
+    document.getElementById('tabelaContainer').innerHTML = `
+      <div class="empty">
+        <strong>Não foi possível carregar os pedidos.</strong>
+        <br><br>
+        Tente atualizar a página.
+      </div>
     `;
 
     return;
-
   }
 
-
-  pedidos =
-  data || [];
-
+  pedidos = data || [];
 
   atualizarIndicadores();
-
   renderizarTabela();
-
 }
 
-
-/* =====================================================
+/* =========================
    INDICADORES
-   ===================================================== */
+========================= */
 
 function atualizarIndicadores(){
 
-  const total =
-  pedidos.length;
+  document.getElementById('totalPedidos').textContent =
+    pedidos.length;
 
+  document.getElementById('novosPedidos').textContent =
+    pedidos.filter(p => p.status === 'novo').length;
 
-  const novos =
-  pedidos.filter(
-    p => p.status === 'novo'
-  ).length;
+  document.getElementById('oracaoPedidos').textContent =
+    pedidos.filter(p => p.status === 'em_oracao').length;
 
-
-  const oracao =
-  pedidos.filter(
-    p => p.status === 'em_oracao'
-  ).length;
-
-
-  const acompanhamento =
-  pedidos.filter(
-    p => p.status === 'em_acompanhamento'
-  ).length;
-
-
-  document.getElementById(
-    'totalPedidos'
-  ).textContent =
-  total;
-
-
-  document.getElementById(
-    'novosPedidos'
-  ).textContent =
-  novos;
-
-
-  document.getElementById(
-    'oracaoPedidos'
-  ).textContent =
-  oracao;
-
-
-  document.getElementById(
-    'acompanhamentoPedidos'
-  ).textContent =
-  acompanhamento;
-
+  document.getElementById('acompanhamentoPedidos').textContent =
+    pedidos.filter(p => p.status === 'em_acompanhamento').length;
 }
 
-
-/* =====================================================
+/* =========================
    TABELA
-   ===================================================== */
+========================= */
 
-function renderizarTabela(){
-
-  const tabela =
-  document.getElementById(
-    'tabelaPedidos'
-  );
-
+window.renderizarTabela = function(){
 
   const busca =
-  document
-    .getElementById('busca')
-    .value
-    .trim()
-    .toLowerCase();
-
-
-  const filtro =
-  document
-    .getElementById('filtroStatus')
-    .value;
-
-
-  const filtrados =
-  pedidos.filter(
-    pedido => {
-
-      const texto =
-      (
-        (pedido.nome || '') +
-        ' ' +
-        (pedido.pedido || '') +
-        ' ' +
-        (pedido.contato || '')
-      )
+    document
+      .getElementById('busca')
+      .value
+      .trim()
       .toLowerCase();
 
+  const filtroStatus =
+    document.getElementById('filtroStatus').value;
+
+  const filtrados =
+    pedidos.filter(pedido => {
+
+      const textoBusca =
+        `${pedido.nome || ''}
+         ${pedido.pedido || ''}
+         ${nomeResponsavel(pedido.responsavel) || ''}`
+        .toLowerCase();
 
       const correspondeBusca =
-      !busca ||
-      texto.includes(busca);
-
+        !busca ||
+        textoBusca.includes(busca);
 
       const correspondeStatus =
-      filtro === 'todos' ||
-      pedido.status === filtro;
+        !filtroStatus ||
+        pedido.status === filtroStatus;
 
+      return correspondeBusca && correspondeStatus;
 
-      return (
-        correspondeBusca &&
-        correspondeStatus
-      );
-
-    }
-  );
-
+    });
 
   if(!filtrados.length){
 
-    tabela.innerHTML = `
-      <tr>
-        <td colspan="5" class="empty">
-          Nenhum pedido encontrado.
-        </td>
-      </tr>
+    document.getElementById('tabelaContainer').innerHTML = `
+      <div class="empty">
+        🙏 Nenhum pedido encontrado.
+      </div>
     `;
 
     return;
-
   }
 
+  let html = `
+    <table>
 
-  tabela.innerHTML =
-  filtrados
-    .map(
-      pedido => `
-
+      <thead>
         <tr>
-
-          <td>
-            <strong>
-              ${escapeHtml(
-                pedido.nome ||
-                'Não informado'
-              )}
-            </strong>
-          </td>
-
-          <td>
-
-            <div class="request-preview">
-
-              ${escapeHtml(
-                pedido.pedido
-              )}
-
-            </div>
-
-          </td>
-
-          <td>
-
-            ${criarStatus(
-              pedido.status
-            )}
-
-          </td>
-
-          <td class="date">
-
-            ${formatarData(
-              pedido.created_at
-            )}
-
-          </td>
-
-          <td>
-
-            <button
-              class="btn btn-light"
-              onclick="abrirPedido('${pedido.id}')"
-            >
-              👁️ Abrir
-            </button>
-
-          </td>
-
+          <th>Nome</th>
+          <th>Pedido</th>
+          <th>Responsável</th>
+          <th>Status</th>
+          <th>Data</th>
+          <th>Ação</th>
         </tr>
+      </thead>
 
-      `
-    )
-    .join('');
-
-}
-
-
-/* =====================================================
-   STATUS
-   ===================================================== */
-
-function criarStatus(status){
-
-  const mapa = {
-
-    novo:{
-      classe:'status-novo',
-      texto:'🆕 Novo'
-    },
-
-    em_oracao:{
-      classe:'status-oracao',
-      texto:'🙏 Em oração'
-    },
-
-    em_acompanhamento:{
-      classe:'status-acompanhamento',
-      texto:'🤝 Em acompanhamento'
-    },
-
-    encerrado:{
-      classe:'status-encerrado',
-      texto:'✅ Encerrado'
-    }
-
-  };
-
-
-  const item =
-  mapa[status] ||
-  mapa.novo;
-
-
-  return `
-    <span class="status ${item.classe}">
-      ${item.texto}
-    </span>
+      <tbody>
   `;
 
-}
+  filtrados.forEach(pedido => {
 
+    const nome =
+      escapeHtml(pedido.nome || 'Não informado');
 
-/* =====================================================
-   ABRIR PEDIDO
-   ===================================================== */
+    const pedidoTexto =
+      escapeHtml(
+        resumir(pedido.pedido || '', 150)
+      );
 
-window.abrirPedido =
-function(id){
+    const responsavel =
+      nomeResponsavel(pedido.responsavel);
 
-  pedidoSelecionado =
-  pedidos.find(
-    pedido =>
-    pedido.id === id
-  );
+    const responsavelHtml =
+      responsavel
+        ? `<span class="responsavel">${escapeHtml(responsavel)}</span>`
+        : `<span class="sem-responsavel">Não atribuído</span>`;
 
+    const status =
+      badgeStatus(pedido.status);
 
-  if(!pedidoSelecionado){
+    html += `
+      <tr>
 
-    return;
+        <td>
+          <strong>${nome}</strong>
+        </td>
 
-  }
+        <td>
+          <div class="request-preview">
+            ${pedidoTexto}
+          </div>
+        </td>
 
+        <td>
+          ${responsavelHtml}
+        </td>
 
-  document.getElementById(
-    'modalNome'
-  ).textContent =
-  pedidoSelecionado.nome ||
-  'Não informado';
+        <td>
+          ${status}
+        </td>
 
+        <td>
+          ${formatarData(pedido.created_at)}
+        </td>
 
-  document.getElementById(
-    'modalData'
-  ).textContent =
-  formatarDataCompleta(
-    pedidoSelecionado.created_at
-  );
+        <td>
+          <button
+            class="btn btn-outline"
+            onclick="abrirPedido('${pedido.id}')"
+          >
+            Ver pedido
+          </button>
+        </td>
 
+      </tr>
+    `;
 
-  document.getElementById(
-    'modalContato'
-  ).textContent =
-  pedidoSelecionado.contato ||
-  'Nenhum contato informado';
+  });
 
+  html += `
+      </tbody>
+    </table>
+  `;
 
-  document.getElementById(
-    'modalPedido'
-  ).textContent =
-  pedidoSelecionado.pedido ||
-  '';
-
-
-  document.getElementById(
-    'novoStatus'
-  ).value =
-  pedidoSelecionado.status ||
-  'novo';
-
-
-  document.getElementById(
-    'observacoes'
-  ).value =
-  pedidoSelecionado.observacoes_internas ||
-  '';
-
-
-  limparMensagemModal();
-
-
-  document.getElementById(
-    'modalBackdrop'
-  ).classList.add('show');
-
+  document.getElementById('tabelaContainer').innerHTML =
+    html;
 };
 
+/* =========================
+   ABRIR PEDIDO
+========================= */
 
-/* =====================================================
-   FECHAR MODAL
-   ===================================================== */
+window.abrirPedido = function(id){
 
-window.fecharModal =
-function(){
+  const pedido =
+    pedidos.find(item => item.id === id);
+
+  if(!pedido){
+    return;
+  }
+
+  pedidoSelecionado = pedido;
+
+  document.getElementById('detNome').textContent =
+    pedido.nome || 'Não informado';
+
+  document.getElementById('detData').textContent =
+    formatarDataCompleta(pedido.created_at);
+
+  document.getElementById('detContato').textContent =
+    pedido.contato || 'Não informado';
+
+  document.getElementById('detPreferencia').textContent =
+    formatarPreferencia(pedido.preferencia_contato);
+
+  document.getElementById('detPedido').textContent =
+    pedido.pedido || '';
+
+  document.getElementById('detResponsavel').value =
+    pedido.responsavel || '';
+
+  document.getElementById('detStatus').value =
+    pedido.status || 'novo';
+
+  document.getElementById('detObservacoes').value =
+    pedido.observacoes_internas || '';
+
+  const mensagem =
+    document.getElementById('mensagemModal');
+
+  mensagem.className = 'notice';
+  mensagem.style.display = 'none';
+  mensagem.textContent = '';
 
   document
-    .getElementById(
-      'modalBackdrop'
-    )
-    .classList.remove('show');
-
-  pedidoSelecionado =
-  null;
-
+    .getElementById('modalBackdrop')
+    .classList.add('show');
 };
 
+/* =========================
+   SALVAR
+========================= */
 
-/* =====================================================
-   SALVAR ALTERAÇÕES
-   ===================================================== */
-
-window.salvarAlteracoes =
-async function(){
+window.salvarPedido = async function(){
 
   if(!pedidoSelecionado){
-
     return;
-
   }
 
-
   const novoStatus =
-  document.getElementById(
-    'novoStatus'
-  ).value;
+    document.getElementById('detStatus').value;
 
+  const novoResponsavel =
+    document.getElementById('detResponsavel').value || null;
 
   const observacoes =
-  document.getElementById(
-    'observacoes'
-  ).value.trim();
-
+    document
+      .getElementById('detObservacoes')
+      .value
+      .trim();
 
   const botao =
-  document.getElementById(
-    'btnSalvar'
-  );
+    document.getElementById('btnSalvar');
 
+  const mensagem =
+    document.getElementById('mensagemModal');
 
-  botao.disabled =
-  true;
+  botao.disabled = true;
+  botao.textContent = 'Salvando...';
 
-  botao.textContent =
-  'Salvando...';
+  mensagem.style.display = 'none';
 
-
-  limparMensagemModal();
-
-
-  const {
-    data,
-    error
-  } =
-  await supabase
-    .from('pedidos_oracao')
-    .update({
-      status:novoStatus,
-      observacoes_internas:
-        observacoes ||
-        null
-    })
-    .eq(
-      'id',
-      pedidoSelecionado.id
-    )
-    .select()
-    .single();
-
+  const { data, error } =
+    await supabase
+      .from('pedidos_oracao')
+      .update({
+        status: novoStatus,
+        responsavel: novoResponsavel,
+        observacoes_internas:
+          observacoes || null
+      })
+      .eq('id', pedidoSelecionado.id)
+      .select()
+      .single();
 
   if(error){
 
     console.error(error);
 
-    mostrarMensagemModal(
-      'Não foi possível salvar as alterações. Verifique sua autorização e tente novamente.',
-      'error'
-    );
+    mensagem.className = 'notice error';
+    mensagem.style.display = 'block';
+    mensagem.textContent =
+      'Não foi possível salvar as alterações. Tente novamente.';
 
-    botao.disabled =
-    false;
-
-    botao.textContent =
-    '💾 Salvar alterações';
+    botao.disabled = false;
+    botao.textContent = '💾 Salvar alterações';
 
     return;
-
   }
 
-
-  /*
-     Atualiza o pedido localmente
-     para o painel refletir imediatamente
-     a mudança.
-  */
+  pedidoSelecionado = data;
 
   const indice =
-  pedidos.findIndex(
-    pedido =>
-    pedido.id ===
-    pedidoSelecionado.id
-  );
-
+    pedidos.findIndex(
+      item => item.id === data.id
+    );
 
   if(indice !== -1){
-
-    pedidos[indice] =
-    data;
-
+    pedidos[indice] = data;
   }
 
-
-  pedidoSelecionado =
-  data;
-
-
   atualizarIndicadores();
-
   renderizarTabela();
 
+  mensagem.className = 'notice success';
+  mensagem.style.display = 'block';
+  mensagem.innerHTML =
+    '<strong>Alterações salvas com sucesso. 🙏</strong>';
 
-  mostrarMensagemModal(
-    'Alterações salvas com sucesso. 🙏',
-    'success'
-  );
+  botao.disabled = false;
+  botao.textContent = '💾 Salvar alterações';
 
-
-  botao.disabled =
-  false;
-
-  botao.textContent =
-  '💾 Salvar alterações';
-
-
-  /*
-     Fecha automaticamente após
-     um breve intervalo.
-  */
-
-  setTimeout(
-    () => {
-
-      fecharModal();
-
-    },
-    900
-  );
-
+  setTimeout(() => {
+    fecharModal();
+  }, 900);
 };
 
+/* =========================
+   MODAL
+========================= */
 
-/* =====================================================
-   MENSAGENS
-   ===================================================== */
+window.fecharModal = function(){
 
-function mostrarMensagemModal(
-  texto,
-  tipo
-){
+  document
+    .getElementById('modalBackdrop')
+    .classList.remove('show');
 
-  const mensagem =
-  document.getElementById(
-    'mensagemModal'
-  );
+  pedidoSelecionado = null;
+};
 
+window.fecharModalFora = function(event){
 
-  mensagem.textContent =
-  texto;
+  if(
+    event.target ===
+    document.getElementById('modalBackdrop')
+  ){
+    fecharModal();
+  }
+};
 
+/* =========================
+   LOGOUT
+========================= */
 
-  mensagem.className =
-  'message ' + tipo;
+window.sair = async function(){
 
-}
+  await supabase.auth.signOut();
 
+  window.location.href =
+    '/central.html';
+};
 
-function limparMensagemModal(){
-
-  const mensagem =
-  document.getElementById(
-    'mensagemModal'
-  );
-
-
-  mensagem.textContent =
-  '';
-
-
-  mensagem.className =
-  'message';
-
-}
-
-
-/* =====================================================
-   DATA
-   ===================================================== */
+/* =========================
+   UTILITÁRIOS
+========================= */
 
 function formatarData(data){
 
   if(!data){
-
     return '—';
-
   }
 
-
-  return new Date(
-    data
-  ).toLocaleDateString(
+  return new Date(data).toLocaleDateString(
     'pt-BR'
   );
-
 }
-
 
 function formatarDataCompleta(data){
 
   if(!data){
-
     return '—';
-
   }
 
-
-  return new Date(
-    data
-  ).toLocaleString(
+  return new Date(data).toLocaleString(
     'pt-BR',
     {
       dateStyle:'short',
       timeStyle:'short'
     }
   );
-
 }
 
+function formatarPreferencia(valor){
 
-/* =====================================================
-   SEGURANÇA — ESCAPAR HTML
-   ===================================================== */
+  const nomes = {
+    nao:'Não precisa de retorno',
+    whatsapp:'WhatsApp',
+    email:'E-mail'
+  };
 
-function escapeHtml(valor){
+  return nomes[valor] || '—';
+}
 
-  return String(valor)
+function resumir(texto, limite){
+
+  if(texto.length <= limite){
+    return texto;
+  }
+
+  return texto.substring(0, limite) + '...';
+}
+
+function badgeStatus(status){
+
+  const nomes = {
+    novo:'Novo',
+    em_oracao:'Em oração',
+    em_acompanhamento:'Em acompanhamento',
+    encerrado:'Encerrado'
+  };
+
+  const classes = {
+    novo:'badge-novo',
+    em_oracao:'badge-oracao',
+    em_acompanhamento:'badge-acompanhamento',
+    encerrado:'badge-encerrado'
+  };
+
+  return `
+    <span class="badge ${classes[status] || 'badge-encerrado'}">
+      ${nomes[status] || status}
+    </span>
+  `;
+}
+
+function escapeHtml(text){
+
+  return String(text)
     .replaceAll('&','&amp;')
     .replaceAll('<','&lt;')
     .replaceAll('>','&gt;')
     .replaceAll('"','&quot;')
     .replaceAll("'","&#039;");
-
 }
 
-
-/* =====================================================
-   LOGOUT
-   ===================================================== */
-
-window.sair =
-async function(){
-
-  await supabase.auth.signOut();
-
-  window.location.href =
-  '/central.html';
-
-};
-
-
-/* =====================================================
-   FECHAR MODAL CLICANDO FORA
-   ===================================================== */
-
-document
-  .getElementById(
-    'modalBackdrop'
-  )
-  .addEventListener(
-    'click',
-    function(event){
-
-      if(
-        event.target ===
-        this
-      ){
-
-        fecharModal();
-
-      }
-
-    }
-  );
-
-
-/* =====================================================
-   INICIAR
-   ===================================================== */
+/* =========================
+   START
+========================= */
 
 iniciar();
 
