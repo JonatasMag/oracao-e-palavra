@@ -91,21 +91,6 @@ footer a:hover{color:#fff}
 .small{font-size:.83rem;color:#91a3b9}
 .floating{position:fixed;right:20px;bottom:20px;z-index:30;background:var(--gold);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;box-shadow:0 12px 35px rgba(0,0,0,.2)}
 @media(max-width:900px){
-.navin{
-  position:relative;
-}
-
-.menu-toggle{
-  display:none !important;
-  background:transparent;
-  border:0;
-  color:var(--navy);
-  font-size:2rem;
-  cursor:pointer;
-  padding:6px 10px;
-}
-
-@media(max-width:900px){
 
   .hero-grid,
   .about,
@@ -121,9 +106,9 @@ footer a:hover{color:#fff}
   }
 
   .menu-toggle{
-    display:block !important;
+    display:block;
   }
-}
+
   .navlinks{
     display:none;
     position:absolute;
@@ -155,7 +140,15 @@ footer a:hover{color:#fff}
   .hero{
     padding-top:48px;
   }
-}</style>
+}
+
+/* SOMENTE DESKTOP */
+@media(min-width:901px){
+  .menu-toggle{
+    display:none !important;
+  }
+}
+</style>
 </head>
 <body>
 <div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
