@@ -91,9 +91,11 @@ footer a:hover{color:#fff}
 .small{font-size:.83rem;color:#91a3b9}
 .floating{position:fixed;right:20px;bottom:20px;z-index:30;background:var(--gold);color:#fff;width:58px;height:58px;border-radius:50%;display:grid;place-items:center;font-size:1.4rem;box-shadow:0 12px 35px rgba(0,0,0,.2)}
 @media(max-width:900px){
- .hero-grid,.about,.form-grid,.whatsapp{grid-template-columns:1fr}
- .grid3,.steps,.video-grid{grid-template-columns:1fr}
- .menu-toggle{
+.navin{
+  position:relative;
+}
+
+.menu-toggle{
   display:none;
   background:transparent;
   border:0;
@@ -104,6 +106,20 @@ footer a:hover{color:#fff}
 }
 
 @media(max-width:900px){
+
+  .hero-grid,
+  .about,
+  .form-grid,
+  .whatsapp{
+    grid-template-columns:1fr;
+  }
+
+  .grid3,
+  .steps,
+  .video-grid{
+    grid-template-columns:1fr;
+  }
+
   .menu-toggle{
     display:block;
   }
@@ -124,17 +140,22 @@ footer a:hover{color:#fff}
   .navlinks.open{
     display:flex;
     flex-direction:column;
+    align-items:stretch;
     gap:4px;
   }
 
   .navlinks a{
     padding:12px 8px;
   }
-}
- .whatsapp{padding:30px}
- .hero{padding-top:48px}
-}
-</style>
+
+  .whatsapp{
+    padding:30px;
+  }
+
+  .hero{
+    padding-top:48px;
+  }
+}</style>
 </head>
 <body>
 <div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
@@ -517,14 +538,21 @@ function chat(){
 
 window.chat = chat;
 
-  function toggleMenu(){
-  document.getElementById('navlinks').classList.toggle('open');
-}
+window.toggleMenu = function(){
 
-  function fecharMenu(){
-  document.getElementById('navlinks').classList.remove('open');
-}
-  
+  document
+    .getElementById('navlinks')
+    .classList.toggle('open');
+
+};
+
+window.fecharMenu = function(){
+
+  document
+    .getElementById('navlinks')
+    .classList.remove('open');
+
+};  
 </script>
 
 </body>
