@@ -528,6 +528,17 @@ tr:hover td{
   border:1px solid #ecc4c4;
 }
 
+.acolhimento-aviso{
+  display:none;
+  margin:0 0 25px;
+  padding:13px 16px;
+  border-radius:10px;
+  background:#fff5d6;
+  color:var(--yellow);
+  border:1px solid #ead79a;
+  font-weight:700;
+}
+
 .footer{
   text-align:center;
   color:#98a2b3;
@@ -606,6 +617,10 @@ tr:hover td{
   <div class="page-title">
     <h1>🙏 Central de Intercessão</h1>
     <p>Receba, acompanhe e direcione os pedidos de oração.</p>
+  </div>
+
+  <div id="avisoAcolhimento" class="acolhimento-aviso" aria-live="polite">
+    Há um pedido aguardando acolhimento.
   </div>
 
 <section class="stats">
@@ -980,7 +995,24 @@ async function carregarDados(){
   pedidos = data || [];
 
   atualizarIndicadores();
+  atualizarAvisoAcolhimento();
   renderizarTabela();
+}
+
+/* =========================
+   AVISO DE ACOLHIMENTO
+========================= */
+
+function atualizarAvisoAcolhimento(){
+
+  const aviso =
+    document.getElementById('avisoAcolhimento');
+
+  const haPedidoAguardando =
+    pedidos.some(pedido => pedido.status === 'novo');
+
+  aviso.style.display =
+    haPedidoAguardando ? 'block' : 'none';
 }
 
 /* =========================
@@ -1398,6 +1430,15 @@ function escapeHtml(text){
 ========================= */
 
 iniciar();
+
+/* =========================
+   ATUALIZAÇÃO AUTOMÁTICA
+   A cada 5 minutos
+========================= */
+
+setInterval(() => {
+  carregarDados();
+}, 300000);
 
 </script>
 
