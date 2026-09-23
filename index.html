@@ -93,7 +93,44 @@ footer a:hover{color:#fff}
 @media(max-width:900px){
  .hero-grid,.about,.form-grid,.whatsapp{grid-template-columns:1fr}
  .grid3,.steps,.video-grid{grid-template-columns:1fr}
- .navlinks{display:none}
+ .menu-toggle{
+  display:none;
+  background:transparent;
+  border:0;
+  color:var(--navy);
+  font-size:2rem;
+  cursor:pointer;
+  padding:6px 10px;
+}
+
+@media(max-width:900px){
+  .menu-toggle{
+    display:block;
+  }
+
+  .navlinks{
+    display:none;
+    position:absolute;
+    top:100%;
+    left:0;
+    right:0;
+    background:#fff;
+    border-top:1px solid var(--line);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    padding:12px 20px;
+    z-index:50;
+  }
+
+  .navlinks.open{
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+  }
+
+  .navlinks a{
+    padding:12px 8px;
+  }
+}
  .whatsapp{padding:30px}
  .hero{padding-top:48px}
 }
@@ -479,6 +516,14 @@ function chat(){
 
 window.chat = chat;
 
+  function toggleMenu(){
+  document.getElementById('navlinks').classList.toggle('open');
+}
+
+function fecharMenu(){
+  document.getElementById('navlinks').classList.remove('open');
+}
+  
 </script>
 
 </body>
