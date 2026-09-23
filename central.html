@@ -1,1 +1,874 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
 
+<head>
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <meta
+    name="description"
+    content="Central de Oração — área exclusiva da equipe Oração e Palavra."
+  >
+
+  <title>Central de Oração | Oração e Palavra</title>
+
+  <style>
+
+    :root {
+      --navy: #0b1f3a;
+      --navy-dark: #071426;
+      --gold: #c9a227;
+      --gold-light: #e3c75f;
+      --white: #ffffff;
+      --background: #f5f7fa;
+      --text: #263238;
+      --muted: #68737d;
+      --border: #e1e6eb;
+      --danger: #b42318;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+
+      font-family:
+        Inter,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Arial,
+        sans-serif;
+
+      color: var(--text);
+      background: var(--background);
+    }
+
+    /* ==============================
+       TOPO
+    ============================== */
+
+    .topbar {
+      background: var(--navy);
+      color: white;
+
+      text-align: center;
+
+      padding: 9px 15px;
+
+      font-size: 13px;
+      letter-spacing: .4px;
+    }
+
+    header {
+      background: white;
+
+      border-bottom:
+        1px solid var(--border);
+
+      padding: 18px 25px;
+    }
+
+    .header-content {
+      max-width: 1180px;
+
+      margin: auto;
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: space-between;
+
+      gap: 25px;
+    }
+
+    .brand {
+      display: flex;
+
+      align-items: center;
+
+      gap: 14px;
+    }
+
+    .brand img {
+      width: 62px;
+      height: 62px;
+
+      object-fit: contain;
+    }
+
+    .brand-title {
+      color: var(--navy);
+
+      font-weight: 800;
+
+      font-size: 20px;
+
+      line-height: 1.1;
+    }
+
+    .brand-subtitle {
+      color: var(--gold);
+
+      font-size: 11px;
+
+      font-weight: 700;
+
+      letter-spacing: 1.5px;
+
+      margin-top: 5px;
+    }
+
+    /* ==============================
+       ÁREA PRINCIPAL
+    ============================== */
+
+    main {
+      min-height: calc(100vh - 150px);
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      padding: 55px 20px;
+    }
+
+    .container {
+      width: 100%;
+
+      max-width: 470px;
+    }
+
+    /* ==============================
+       CARD DE LOGIN
+    ============================== */
+
+    .login-card {
+      background: white;
+
+      border-radius: 20px;
+
+      padding: 42px;
+
+      box-shadow:
+        0 20px 50px rgba(11, 31, 58, .10);
+
+      border:
+        1px solid rgba(11, 31, 58, .07);
+    }
+
+    .icon {
+      width: 76px;
+      height: 76px;
+
+      margin: 0 auto 20px;
+
+      border-radius: 50%;
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy),
+          #173d70
+        );
+
+      display: flex;
+
+      align-items: center;
+
+      justify-content: center;
+
+      color: var(--gold-light);
+
+      font-size: 32px;
+
+      box-shadow:
+        0 8px 25px rgba(11, 31, 58, .20);
+    }
+
+    h1 {
+      margin: 0;
+
+      text-align: center;
+
+      color: var(--navy);
+
+      font-size: 30px;
+    }
+
+    .subtitle {
+      text-align: center;
+
+      color: var(--muted);
+
+      line-height: 1.6;
+
+      margin:
+        12px auto 30px;
+
+      max-width: 360px;
+    }
+
+    /* ==============================
+       FORMULÁRIO
+    ============================== */
+
+    label {
+      display: block;
+
+      color: var(--navy);
+
+      font-weight: 700;
+
+      font-size: 14px;
+
+      margin:
+        0 0 8px;
+    }
+
+    input {
+      width: 100%;
+
+      border:
+        1px solid #ccd4dc;
+
+      border-radius: 10px;
+
+      padding: 14px 15px;
+
+      font-size: 16px;
+
+      outline: none;
+
+      margin-bottom: 20px;
+
+      transition:
+        border .2s,
+        box-shadow .2s;
+    }
+
+    input:focus {
+      border-color: var(--gold);
+
+      box-shadow:
+        0 0 0 3px
+        rgba(201, 162, 39, .15);
+    }
+
+    .password-area {
+      position: relative;
+    }
+
+    .password-area input {
+      padding-right: 75px;
+    }
+
+    .show-password {
+      position: absolute;
+
+      right: 10px;
+
+      top: 0;
+
+      height: 48px;
+
+      border: 0;
+
+      background: transparent;
+
+      color: var(--navy);
+
+      font-weight: 700;
+
+      cursor: pointer;
+    }
+
+    /* ==============================
+       BOTÃO
+    ============================== */
+
+    .btn {
+      width: 100%;
+
+      border: 0;
+
+      border-radius: 10px;
+
+      padding: 15px;
+
+      font-size: 16px;
+
+      font-weight: 800;
+
+      cursor: pointer;
+
+      transition:
+        transform .15s,
+        opacity .15s;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px);
+    }
+
+    .btn:disabled {
+      opacity: .65;
+
+      cursor: wait;
+
+      transform: none;
+    }
+
+    .btn-gold {
+      color: var(--navy);
+
+      background:
+        linear-gradient(
+          135deg,
+          var(--gold-light),
+          var(--gold)
+        );
+    }
+
+    /* ==============================
+       MENSAGEM
+    ============================== */
+
+    .message {
+      display: none;
+
+      margin-top: 18px;
+
+      padding: 13px 15px;
+
+      border-radius: 10px;
+
+      font-size: 14px;
+
+      line-height: 1.5;
+    }
+
+    .message.error {
+      display: block;
+
+      color: var(--danger);
+
+      background: #fff1f0;
+
+      border:
+        1px solid #f2c6c2;
+    }
+
+    /* ==============================
+       RODAPÉ
+    ============================== */
+
+    footer {
+      text-align: center;
+
+      padding: 25px 20px;
+
+      color: var(--muted);
+
+      font-size: 13px;
+    }
+
+    footer strong {
+      color: var(--navy);
+    }
+
+    .back-link {
+      display: inline-block;
+
+      margin-top: 10px;
+
+      color: var(--navy);
+
+      text-decoration: none;
+
+      font-weight: 700;
+    }
+
+    .back-link:hover {
+      color: var(--gold);
+    }
+
+    /* ==============================
+       RESPONSIVO
+    ============================== */
+
+    @media (max-width: 600px) {
+
+      header {
+        padding: 15px;
+      }
+
+      .brand img {
+        width: 52px;
+        height: 52px;
+      }
+
+      .brand-title {
+        font-size: 17px;
+      }
+
+      .login-card {
+        padding: 30px 22px;
+      }
+
+      h1 {
+        font-size: 26px;
+      }
+
+      main {
+        padding:
+          35px 15px;
+      }
+
+    }
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- =========================================
+       TOPO
+  ========================================== -->
+
+  <div class="topbar">
+    “Mas nós perseveraremos na oração e no ministério da palavra.”
+    — Atos 6:4
+  </div>
+
+
+  <!-- =========================================
+       CABEÇALHO
+  ========================================== -->
+
+  <header>
+
+    <div class="header-content">
+
+      <div class="brand">
+
+        <!--
+          IMPORTANTE:
+          O logo será conectado posteriormente.
+        -->
+
+        <div
+          style="
+            width:62px;
+            height:62px;
+            border-radius:50%;
+            background:#0b1f3a;
+            display:flex;
+            align-items:center;
+            justify-content:center;
+            color:#e3c75f;
+            font-size:25px;
+          "
+        >
+          ✝
+        </div>
+
+        <div>
+
+          <div class="brand-title">
+            Oração e Palavra
+          </div>
+
+          <div class="brand-subtitle">
+            CENTRAL DE ORAÇÃO
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- =========================================
+       LOGIN
+  ========================================== -->
+
+  <main>
+
+    <div class="container">
+
+      <div class="login-card">
+
+        <div class="icon">
+          🔐
+        </div>
+
+        <h1>
+          Central de Oração
+        </h1>
+
+        <p class="subtitle">
+          Área exclusiva da equipe de oração.
+          Entre com suas credenciais para
+          acessar os pedidos que foram confiados
+          ao nosso ministério.
+        </p>
+
+
+        <form id="loginForm">
+
+          <label for="email">
+            E-mail
+          </label>
+
+          <input
+            id="email"
+            type="email"
+            autocomplete="email"
+            placeholder="Digite seu e-mail"
+            required
+          >
+
+
+          <label for="password">
+            Senha
+          </label>
+
+          <div class="password-area">
+
+            <input
+              id="password"
+              type="password"
+              autocomplete="current-password"
+              placeholder="Digite sua senha"
+              required
+            >
+
+            <button
+              type="button"
+              class="show-password"
+              id="togglePassword"
+            >
+              Mostrar
+            </button>
+
+          </div>
+
+
+          <button
+            type="submit"
+            class="btn btn-gold"
+            id="loginButton"
+          >
+            🔐 Entrar na Central
+          </button>
+
+
+          <div
+            id="message"
+            class="message"
+          ></div>
+
+        </form>
+
+      </div>
+
+
+      <footer>
+
+        <div>
+          <strong>Oração e Palavra</strong>
+        </div>
+
+        <div>
+          Central da Equipe de Oração
+        </div>
+
+        <a
+          href="/"
+          class="back-link"
+        >
+          ← Voltar ao site
+        </a>
+
+      </footer>
+
+    </div>
+
+  </main>
+
+
+  <!-- =========================================
+       SUPABASE
+  ========================================== -->
+
+  <script type="module">
+
+    import {
+      createClient
+    } from
+    'https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/+esm';
+
+
+    /*
+      ============================================
+      CONFIGURAÇÃO SUPABASE
+      ============================================
+
+      NÃO COLOQUE A SECRET KEY AQUI.
+
+      A chave abaixo deverá ser a
+      sb_publishable_... do seu projeto.
+    */
+
+    const SUPABASE_URL =
+      'https://drvqdsgceyembhtiqdhm.supabase.co';
+
+    const SUPABASE_PUBLISHABLE_KEY =
+      'sb_publishable_JY7-kbPZ_-G9aEPYvlbB6Q_4w8c1rI-';
+
+
+    const supabase =
+      createClient(
+        SUPABASE_URL,
+        SUPABASE_PUBLISHABLE_KEY
+      );
+
+
+    /*
+      ============================================
+      ELEMENTOS
+      ============================================
+    */
+
+    const loginForm =
+      document.getElementById('loginForm');
+
+    const email =
+      document.getElementById('email');
+
+    const password =
+      document.getElementById('password');
+
+    const loginButton =
+      document.getElementById('loginButton');
+
+    const message =
+      document.getElementById('message');
+
+    const togglePassword =
+      document.getElementById('togglePassword');
+
+
+    /*
+      ============================================
+      MOSTRAR / OCULTAR SENHA
+      ============================================
+    */
+
+    togglePassword.addEventListener(
+      'click',
+      () => {
+
+        if(password.type === 'password') {
+
+          password.type = 'text';
+
+          togglePassword.textContent =
+            'Ocultar';
+
+        } else {
+
+          password.type = 'password';
+
+          togglePassword.textContent =
+            'Mostrar';
+
+        }
+
+      }
+    );
+
+
+    /*
+      ============================================
+      LOGIN
+      ============================================
+    */
+
+    loginForm.addEventListener(
+      'submit',
+      async (event) => {
+
+        event.preventDefault();
+
+
+        message.className =
+          'message';
+
+        message.textContent =
+          '';
+
+        loginButton.disabled =
+          true;
+
+        loginButton.textContent =
+          'Entrando...';
+
+
+        const emailValue =
+          email.value.trim();
+
+        const passwordValue =
+          password.value;
+
+
+        try {
+
+          /*
+            1. Autenticação
+          */
+
+          const {
+            data,
+            error
+          } =
+            await supabase.auth
+              .signInWithPassword({
+
+                email:
+                  emailValue,
+
+                password:
+                  passwordValue
+
+              });
+
+
+          if(error) {
+
+            throw error;
+
+          }
+
+
+          /*
+            2. Verificar autorização
+               na tabela equipe_oracao
+          */
+
+          const {
+            data: equipe,
+            error: equipeError
+          } =
+            await supabase
+              .from('equipe_oracao')
+              .select(
+                'user_id, nome, funcao, ativo'
+              )
+              .eq(
+                'user_id',
+                data.user.id
+              )
+              .eq(
+                'ativo',
+                true
+              )
+              .maybeSingle();
+
+
+          if(equipeError) {
+
+            throw equipeError;
+
+          }
+
+
+          /*
+            Usuário autenticado,
+            mas não autorizado.
+          */
+
+          if(!equipe) {
+
+            await supabase.auth
+              .signOut();
+
+            throw new Error(
+              'USUARIO_NAO_AUTORIZADO'
+            );
+
+          }
+
+
+          /*
+            3. Acesso autorizado
+          */
+
+          window.location.href =
+            'painel.html';
+
+        }
+
+        catch(error) {
+
+          console.error(error);
+
+
+          message.className =
+            'message error';
+
+
+          if(
+            error.message ===
+            'USUARIO_NAO_AUTORIZADO'
+          ) {
+
+            message.textContent =
+              'Seu usuário foi autenticado, mas não possui autorização para acessar a Central de Oração.';
+
+          } else {
+
+            message.textContent =
+              'Não foi possível entrar. Verifique seu e-mail e sua senha.';
+
+          }
+
+        }
+
+        finally {
+
+          loginButton.disabled =
+            false;
+
+          loginButton.textContent =
+            '🔐 Entrar na Central';
+
+        }
+
+      }
+    );
+
+  </script>
+
+</body>
+
+</html>
