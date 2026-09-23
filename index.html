@@ -477,20 +477,6 @@ function chat(){
 window.chat = chat;
 
 </script>
-  
-function chat(){
-  const input=document.getElementById('chatmsg');
-  const body=document.getElementById('chatbody');
-  const msg=input.value.trim();
-  if(!msg)return;
-  const you=document.createElement('div'); you.className='bubble you'; you.textContent=msg; body.appendChild(you);
-  input.value='';
-  setTimeout(()=>{
-    const b=document.createElement('div'); b.className='bubble';
-    b.textContent='Obrigado por confiar em nós. Na versão definitiva, este chat será conectado à equipe de acolhimento. Enquanto isso, você pode deixar seu pedido de oração no formulário acima.';
-    body.appendChild(b); body.scrollTop=body.scrollHeight;
-  },450);
-}
-</script>
+
 </body>
 </html>
