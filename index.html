@@ -242,7 +242,40 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="section" id="oracao">
+<section class="section" id="acolhimento">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Chat de acolhimento</div>
+      <h2>Você pode começar a conversar</h2>
+      <p>Escolha uma opção abaixo ou escreva livremente. Um membro da equipe pode entrar na conversa a qualquer momento.</p>
+    </div>
+    <div class="chatbox">
+      <div class="chathead">
+        <span>Oração e Palavra • Acolhimento</span>
+        <small>Triagem automática + equipe humana</small>
+      </div>
+      <div class="chatbody" id="chatbody">
+        <div class="bubble">Olá. Que bom ter você aqui. O que trouxe você até nós hoje?</div>
+        <div class="bubble-actions">
+          <a class="chat-action" href="#oracao">🙏 Pedir oração</a>
+          <button type="button" class="chat-action" onclick="falarComAlguem()">💬 Falar com alguém agora</button>
+        </div>
+      </div>
+      <div class="chat-options">
+        <button type="button" class="chat-opt" onclick="enviarOpcao('Preciso de oração')">🙏 Preciso de oração</button>
+        <button type="button" class="chat-opt" onclick="enviarOpcao('Quero conhecer Jesus')">✝️ Quero conhecer Jesus</button>
+        <button type="button" class="chat-opt" onclick="enviarOpcao('Estou passando por um momento difícil')">💬 Momento difícil</button>
+        <button type="button" class="chat-opt" onclick="enviarOpcao('Quero conhecer uma igreja perto de mim')">⛪ Uma igreja perto de mim</button>
+      </div>
+      <div class="chatinput">
+        <input id="chatmsg" placeholder="Ou escreva sua mensagem..." onkeydown="if(event.key==='Enter')chat()">
+        <button class="btn btn-navy" onclick="chat()">Enviar</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="oracao">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Você pode falar</div>
@@ -326,7 +359,7 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="section alt">
+<section class="section">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Uma jornada simples</div>
@@ -340,7 +373,7 @@ footer a:hover{color:#fff}
   </div>
 </section>
 
-<section class="section" id="pregacoes">
+<section class="section alt" id="pregacoes">
   <div class="container">
     <div class="section-head">
       <div class="eyebrow">Pregações e orientações</div>
@@ -369,39 +402,6 @@ footer a:hover{color:#fff}
   </a>
 
 </div>
-  </div>
-</section>
-
-<section class="section alt" id="acolhimento">
-  <div class="container">
-    <div class="section-head">
-      <div class="eyebrow">Chat de acolhimento</div>
-      <h2>Você pode começar a conversar</h2>
-      <p>Escolha uma opção abaixo ou escreva livremente. Um membro da equipe pode entrar na conversa a qualquer momento.</p>
-    </div>
-    <div class="chatbox">
-      <div class="chathead">
-        <span>Oração e Palavra • Acolhimento</span>
-        <small>Triagem automática + equipe humana</small>
-      </div>
-      <div class="chatbody" id="chatbody">
-        <div class="bubble">Olá. Que bom ter você aqui. O que trouxe você até nós hoje?</div>
-        <div class="bubble-actions">
-          <a class="chat-action" href="#oracao">🙏 Pedir oração</a>
-          <button type="button" class="chat-action" onclick="falarComAlguem()">💬 Falar com alguém agora</button>
-        </div>
-      </div>
-      <div class="chat-options">
-        <button type="button" class="chat-opt" onclick="enviarOpcao('Preciso de oração')">🙏 Preciso de oração</button>
-        <button type="button" class="chat-opt" onclick="enviarOpcao('Quero conhecer Jesus')">✝️ Quero conhecer Jesus</button>
-        <button type="button" class="chat-opt" onclick="enviarOpcao('Estou passando por um momento difícil')">💬 Momento difícil</button>
-        <button type="button" class="chat-opt" onclick="enviarOpcao('Quero conhecer uma igreja perto de mim')">⛪ Uma igreja perto de mim</button>
-      </div>
-      <div class="chatinput">
-        <input id="chatmsg" placeholder="Ou escreva sua mensagem..." onkeydown="if(event.key==='Enter')chat()">
-        <button class="btn btn-navy" onclick="chat()">Enviar</button>
-      </div>
-    </div>
   </div>
 </section>
 
