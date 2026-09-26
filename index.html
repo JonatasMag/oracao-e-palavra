@@ -9,7 +9,8 @@
 <meta property="og:title" content="Oração e Palavra | Atos 6:4">
 <meta property="og:description" content="Um espaço de acolhimento, oração, Palavra de Deus, pregações e comunhão cristã.">
 <meta property="og:image" content="logo-oracao-e-palavra.png">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9C%9D%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" href="favicon-oracao-e-palavra.png">
+<link rel="apple-touch-icon" href="favicon-oracao-e-palavra.png">
 <title>Oração e Palavra | Atos 6:4</title>
 <style>
 :root{
@@ -88,6 +89,11 @@ textarea{min-height:145px;resize:vertical}
 .bubble{max-width:82%;padding:13px 15px;border-radius:17px;margin:10px 0;background:#fff;border:1px solid var(--line)}
 .bubble.you{margin-left:auto;background:#edf3fb}
 .bubble.urgent{background:var(--alert-bg);border-color:#f3c8cc;color:var(--alert);max-width:100%}
+.bubble-actions{display:flex;flex-wrap:wrap;gap:8px;margin:-4px 0 16px}
+.chat-action{display:inline-flex;align-items:center;gap:6px;padding:8px 13px;border-radius:999px;font-size:.8rem;font-weight:800;border:1px solid var(--line);background:#fff;color:var(--navy);cursor:pointer;font-family:inherit}
+.chat-action:hover{border-color:var(--gold);color:var(--gold)}
+.chat-action.primary{background:var(--alert);border-color:var(--alert);color:#fff}
+.chat-action.primary:hover{opacity:.9;color:#fff}
 .chat-options{display:flex;flex-wrap:wrap;gap:8px;padding:0 22px 18px}
 .chat-opt{background:#fff;border:1px solid var(--line);border-radius:999px;padding:9px 14px;font-size:.84rem;font-weight:700;color:var(--navy);cursor:pointer}
 .chat-opt:hover{border-color:var(--gold);color:var(--gold)}
@@ -380,6 +386,10 @@ footer a:hover{color:#fff}
       </div>
       <div class="chatbody" id="chatbody">
         <div class="bubble">Olá. Que bom ter você aqui. O que trouxe você até nós hoje?</div>
+        <div class="bubble-actions">
+          <a class="chat-action" href="#oracao">🙏 Pedir oração</a>
+          <button type="button" class="chat-action" onclick="falarComAlguem()">💬 Falar com alguém agora</button>
+        </div>
       </div>
       <div class="chat-options">
         <button type="button" class="chat-opt" onclick="enviarOpcao('Preciso de oração')">🙏 Preciso de oração</button>
@@ -615,6 +625,37 @@ function adicionarBolha(texto, classe){
   body.scrollTop = body.scrollHeight;
 }
 
+// Adiciona, ao final de uma resposta do chat, os botões de ação rápida.
+// Quando "urgente" é verdadeiro, o botão de falar com alguém fica em destaque.
+function adicionarAcoes(urgente){
+  const body = document.getElementById('chatbody');
+  const row = document.createElement('div');
+  row.className = 'bubble-actions' + (urgente ? ' urgent' : '');
+  row.innerHTML =
+    '<a class="chat-action" href="#oracao">🙏 Pedir oração</a>' +
+    '<button type="button" class="chat-action' + (urgente ? ' primary' : '') + '" onclick="falarComAlguem()">💬 Falar com alguém agora</button>';
+  body.appendChild(row);
+  body.scrollTop = body.scrollHeight;
+}
+
+// Abre o chat ao vivo do tawk.to (quando já estiver ativado no site).
+// Enquanto o tawk.to não estiver configurado, leva a pessoa até o
+// formulário de oração, onde ela pode pedir contato da equipe.
+window.falarComAlguem = function(){
+  if(window.Tawk_API && typeof Tawk_API.maximize === 'function'){
+    Tawk_API.maximize();
+    return;
+  }
+  const secaoOracao = document.getElementById('oracao');
+  if(secaoOracao){
+    secaoOracao.scrollIntoView({ behavior:'smooth' });
+  }
+  const contatoInput = document.getElementById('preferencia_contato');
+  if(contatoInput){
+    contatoInput.focus();
+  }
+};
+
 function processarMensagem(msg){
   if(!msg) return;
 
@@ -623,6 +664,7 @@ function processarMensagem(msg){
   setTimeout(()=>{
     const r = respostaPara(msg);
     adicionarBolha(r.texto, r.urgente ? 'urgent' : null);
+    adicionarAcoes(r.urgente);
   }, 450);
 }
 
