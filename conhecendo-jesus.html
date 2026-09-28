@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Conhecendo Jesus — uma jornada de 7 dias sobre Salvação, Verdade e Esperança em Cristo. Oração e Palavra, Atos 6:4.">
+<meta name="theme-color" content="#0b2345">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracao-e-palavra.chazaq-adm.workers.dev/conhecendo-jesus.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Oração e Palavra">
+<meta property="og:url" content="https://oracao-e-palavra.chazaq-adm.workers.dev/conhecendo-jesus.html">
+<meta property="og:title" content="Conhecendo Jesus | Oração e Palavra">
+<meta property="og:description" content="Uma jornada de 7 dias sobre Salvação, Verdade e Esperança em Cristo.">
+<meta property="og:image" content="https://oracao-e-palavra.chazaq-adm.workers.dev/logo-oracao-e-palavra.png">
+<link rel="icon" type="image/png" href="favicon-oracao-e-palavra.png">
+<link rel="apple-touch-icon" href="favicon-oracao-e-palavra.png">
+<title>Conhecendo Jesus | Oração e Palavra</title>
+<style>
+:root{
+  --navy:#0b2345; --gold:#c9962d; --gold2:#e4bd67;
+  --ink:#172033; --muted:#647084; --soft:#f5f7fa;
+  --line:#e7ebf0; --shadow:0 18px 50px rgba(11,35,69,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{text-decoration:none;color:inherit}
+.container{width:min(920px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;text-align:center;padding:9px 15px;font-size:.88rem}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{max-width:1160px;margin:auto;min-height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:0 4%}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.brand img{width:46px;height:46px;object-fit:contain}
+.back{font-weight:700;font-size:.9rem;color:var(--navy)}
+.back:hover{color:var(--gold)}
+.hero{padding:56px 0 30px;text-align:center}
+.eyebrow{color:var(--gold);font-weight:900;text-transform:uppercase;letter-spacing:.1em;font-size:.78rem}
+h1{font-family:Georgia,serif;color:var(--navy);font-size:clamp(2rem,4.5vw,3rem);margin:12px 0 16px}
+.hero p{color:var(--muted);font-size:1.05rem;max-width:620px;margin:auto}
+.theme{padding:20px 0 56px}
+.theme-head{margin:0 0 20px}
+.theme-head .eyebrow{display:block;margin-bottom:6px}
+.theme-head h2{font-family:Georgia,serif;color:var(--navy);font-size:1.7rem;margin:0 0 8px}
+.theme-head p{color:var(--muted);margin:0}
+.day{background:#fff;border:1px solid var(--line);border-radius:18px;margin-bottom:14px;box-shadow:0 8px 24px rgba(11,35,69,.05);overflow:hidden}
+.day-toggle{width:100%;text-align:left;background:none;border:0;cursor:pointer;padding:20px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;font:inherit}
+.day-num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--soft);color:var(--navy);font-weight:900;font-size:.85rem;margin-right:12px;flex:none}
+.day-title{font-weight:800;color:var(--navy);font-size:1.05rem}
+.day-arrow{color:var(--gold);font-size:1.1rem;transition:transform .2s;flex:none}
+.day.open .day-arrow{transform:rotate(180deg)}
+.day-body{max-height:0;overflow:hidden;transition:max-height .3s ease}
+.day.open .day-body{max-height:900px}
+.day-inner{padding:0 22px 24px 68px;color:#3c4658}
+.day-verse{border-left:4px solid var(--gold);padding:10px 0 10px 16px;font-family:Georgia,serif;color:var(--navy);margin:14px 0}
+.day-refs{font-size:.85rem;color:var(--muted);margin:0 0 14px}
+.day-refs strong{color:var(--navy)}
+.day-prayer{background:var(--soft);border-radius:12px;padding:14px 16px;font-size:.92rem;color:var(--muted)}
+.day-prayer strong{color:var(--navy)}
+.day-oracao{background:#fff8ea;border:1px solid #f0dfb0;border-radius:12px;padding:14px 16px;font-size:.92rem;color:#5c4a1a;margin-top:12px;font-family:Georgia,serif;line-height:1.6}
+.day-oracao strong{display:block;color:var(--navy);font-family:Inter,Arial,sans-serif;margin-bottom:6px;font-size:.85rem;text-transform:uppercase;letter-spacing:.04em}
+.cta{background:linear-gradient(135deg,var(--navy),#163f70);color:#fff;border-radius:26px;padding:36px;text-align:center;margin:40px 0}
+.cta h3{font-family:Georgia,serif;margin:0 0 10px}
+.cta p{color:#dce7f5;margin:0 0 20px}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:13px 22px;border-radius:999px;font-weight:800;background:var(--gold);color:#fff;margin:0 6px}
+footer{text-align:center;color:#91a3b9;font-size:.83rem;padding:30px 20px;background:#071a33}
+@media(max-width:600px){
+  .day-inner{padding:0 18px 20px 18px}
+}
+</style>
+</head>
+<body>
+<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+
+<nav>
+  <div class="navin">
+    <a class="brand" href="index.html">
+      <img src="logo-oracao-e-palavra.png" alt="Logo Oração e Palavra">
+      <span>ORAÇÃO E PALAVRA</span>
+    </a>
+    <a class="back" href="index.html">← Voltar ao site</a>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="eyebrow">Uma jornada de 7 dias</div>
+    <h1>Conhecendo Jesus</h1>
+    <p>Sete passos simples para conhecer quem é Jesus, por que Ele importa, e como começar (ou aprofundar) uma caminhada real com Ele. Vá no seu tempo — não há pressa nem cobrança aqui.</p>
+  </div>
+</section>
+
+<section class="theme" id="salvacao">
+  <div class="container">
+    <div class="theme-head">
+      <span class="eyebrow">✝️ Salvação — dias 1 e 2</span>
+      <h2>Por que tudo começa aqui</h2>
+      <p>Antes de qualquer prática ou promessa, a fé cristã começa com duas perguntas: quem é Jesus, e por que eu preciso Dele?</p>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">1</span><span class="day-title">Quem é Jesus?</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Antes de decidir o que pensar sobre Jesus, vale a pena olhar para o que Ele mesmo disse e fez. Os Evangelhos O apresentam não como um simples professor de moral ou um líder religioso entre outros, mas como Deus que se fez homem — nasceu, viveu, ensinou com autoridade única, curou os enfermos e, no fim, entregou a própria vida para depois ressuscitar.</p>
+        <p>É justamente essa afirmação — de que Jesus é plenamente Deus e plenamente homem — que Torna o cristianismo diferente de qualquer filosofia: não se trata apenas de seguir ensinamentos, mas de se relacionar com uma Pessoa viva.</p>
+        <div class="day-verse">“Eu sou o caminho, e a verdade e a vida.” — João 14:6</div>
+        <p class="day-refs"><strong>Leia também:</strong> João 1:1 · Colossenses 1:15-17 · Hebreus 1:3</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Se Jesus realmente é quem Ele disse ser, o que isso muda na forma como eu vejo minha própria vida?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Senhor Jesus, obrigado por eu poder Te conhecer não como uma ideia distante, mas como alguém que veio até mim. Abre meu coração hoje para reconhecer quem Tu és. Amém.</div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">2</span><span class="day-title">Por que precisamos de salvação?</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>A palavra "salvação" só faz sentido quando entendemos do que estamos sendo salvos. A Bíblia é direta ao afirmar que todos nós, sem exceção, já falhamos diante do padrão perfeito de Deus — e essa falha (o que as Escrituras chamam de pecado) nos separa Dele, não porque Deus seja distante, mas porque Ele é justo.</p>
+        <p>A boa notícia é que essa separação não é a palavra final. Deus não ficou apenas observando de longe; Ele mesmo, em Jesus, tomou a iniciativa de resolver o que nós não conseguiríamos resolver sozinhos.</p>
+        <div class="day-verse">“Porque todos pecaram e carecem da glória de Deus.” — Romanos 3:23</div>
+        <p class="day-refs"><strong>Leia também:</strong> Isaías 59:2 · Romanos 6:23 · Efésios 2:1</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Existe algo em mim que eu sei que não está certo diante de Deus, mas que eu tenho evitado encarar?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Senhor, reconheço diante de Ti que já falhei e que preciso da Tua salvação. Obrigado por não teres desistido de mim. Ajuda-me a enxergar minha vida com sinceridade diante de Ti. Amém.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="theme alt" id="verdade" style="background:var(--soft)">
+  <div class="container">
+    <div class="theme-head">
+      <span class="eyebrow">📖 Verdade — dias 3 a 5</span>
+      <h2>O que Jesus realmente fez e pede de nós</h2>
+      <p>Aqui entramos no coração do Evangelho: o que Jesus fez na cruz, e como respondemos a isso com sinceridade.</p>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">3</span><span class="day-title">O que Jesus fez por nós?</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Na cruz, Jesus não foi apenas mais uma vítima de injustiça — Ele tomou voluntariamente sobre si o peso que deveria ser nosso. A Bíblia descreve isso como uma troca: Ele carregou nossa culpa, para que pudéssemos receber o perdão que não merecíamos.</p>
+        <p>E a história não termina na cruz. A ressurreição de Jesus, três dias depois, é a prova de que aquele sacrifício foi aceito e de que a morte não teve a palavra final.</p>
+        <div class="day-verse">“Mas Deus prova o seu amor para conosco, em que Cristo morreu por nós, sendo nós ainda pecadores.” — Romanos 5:8</div>
+        <p class="day-refs"><strong>Leia também:</strong> Isaías 53:5 · 1 Pedro 2:24 · 1 Coríntios 15:3-4</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> O que significa, na prática, saber que fui amado antes mesmo de merecer?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Obrigado, Jesus, por teres levado sobre Ti o que era meu. Ajuda-me a receber esse amor sem tentar merecê-lo, e a viver hoje como alguém que foi resgatado. Amém.</div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">4</span><span class="day-title">Arrependimento e fé</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Arrepender-se não é apenas sentir culpa — é decidir mudar de direção. É reconhecer que o caminho que eu vinha seguindo não leva a Deus, e escolher, de coração, virar-me para Ele.</p>
+        <p>Fé, por sua vez, não é um salto no escuro nem apenas concordar com fatos sobre Jesus. É confiar Nele o suficiente para colocar minha vida em Suas mãos, mesmo sem enxergar todo o caminho à frente.</p>
+        <div class="day-verse">“Arrependei-vos, e crede no evangelho.” — Marcos 1:15</div>
+        <p class="day-refs"><strong>Leia também:</strong> Atos 3:19 · Lucas 15:18-20 · Hebreus 11:6</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Há alguma área da minha vida que eu ainda não entreguei de verdade a Deus?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Senhor, mostra-me com clareza onde preciso mudar de direção. Ajuda-me a confiar em Ti mais do que nas minhas próprias forças. Recebo hoje o Teu chamado para uma vida nova. Amém.</div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">5</span><span class="day-title">Graça e perdão</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Graça é o oposto de ganhar o que se recebe: é um presente dado a quem não tinha como pagar por ele. Ninguém se torna digno o suficiente para merecer o perdão de Deus — e é exatamente por isso que Ele é gratuito, sustentado pelo próprio caráter de Deus, e não pelo nosso desempenho.</p>
+        <p>Isso muda tudo: significa que o passado de uma pessoa, por mais pesado que seja, não tem a palavra final sobre quem ela pode se tornar em Cristo.</p>
+        <div class="day-verse">“Porque pela graça sois salvos, por meio da fé; e isto não vem de vós, é dom de Deus.” — Efésios 2:8</div>
+        <p class="day-refs"><strong>Leia também:</strong> Salmo 103:12 · Tito 3:5 · 1 João 1:9</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Existe algo do meu passado que eu ainda carrego como se Deus não tivesse me perdoado?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Pai, obrigado porque Teu perdão não depende do que eu fiz, mas do que Jesus já fez por mim. Ajuda-me a deixar de carregar culpas que Tu já perdoaste. Amém.</div>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="theme" id="esperanca">
+  <div class="container">
+    <div class="theme-head">
+      <span class="eyebrow">🕊️ Esperança — dias 6 e 7</span>
+      <h2>Uma vida nova, e o que vem depois</h2>
+      <p>Os últimos dois passos olham para frente: quem eu me torno em Cristo, e como começo, de fato, a caminhar com Ele.</p>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">6</span><span class="day-title">Novo nascimento</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Quando alguém recebe Jesus de coração, a Bíblia não descreve isso como uma pequena reforma de comportamento, mas como um novo nascimento — um recomeço genuíno, de dentro para fora, que só Deus pode operar.</p>
+        <p>Isso não significa que a pessoa se torna perfeita da noite para o dia. Significa que ela ganha uma nova identidade, um novo Espírito habitando nela, e uma direção nova para caminhar — passo a passo, com paciência e graça.</p>
+        <div class="day-verse">“Portanto, se alguém está em Cristo, nova criatura é.” — 2 Coríntios 5:17</div>
+        <p class="day-refs"><strong>Leia também:</strong> João 3:3-6 · Ezequiel 36:26 · Gálatas 2:20</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Se eu já dei esse passo antes, em que áreas ainda preciso permitir que Deus renove minha forma de pensar e viver?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Senhor, faz nova a minha vida por dentro. Tira de mim o que não Te agrada e coloca em mim um coração disposto a Te seguir de verdade. Amém.</div>
+      </div></div>
+    </div>
+
+    <div class="day">
+      <button class="day-toggle" onclick="toggleDay(this)">
+        <span><span class="day-num">7</span><span class="day-title">Começando uma caminhada com Cristo</span></span>
+        <span class="day-arrow">▾</span>
+      </button>
+      <div class="day-body"><div class="day-inner">
+        <p>Conhecer Jesus não é o fim de uma jornada, mas o começo de uma caminhada diária. Assim como qualquer relacionamento verdadeiro, essa caminhada cresce através de hábitos simples: conversar com Deus em oração, ler as Escrituras, e caminhar ao lado de outros cristãos que também estão aprendendo e crescendo.</p>
+        <p>Você não precisa ter todas as respostas hoje. Precisa apenas dar o próximo passo — e não vai caminhar sozinho.</p>
+        <div class="day-verse">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+        <p class="day-refs"><strong>Leia também:</strong> Salmo 119:105 · Hebreus 10:24-25 · Filipenses 1:6</p>
+        <div class="day-prayer"><strong>Para refletir hoje:</strong> Qual é um passo pequeno e concreto que eu posso dar esta semana para caminhar mais perto de Deus?</div>
+        <div class="day-oracao"><strong>🙏 Oração de hoje</strong>Senhor, obrigado por não precisar caminhar sozinho. Ensina-me a buscar-Te todos os dias, através da oração, da Tua Palavra e de pessoas que também Te seguem. Continua a Tua obra em mim. Amém.</div>
+      </div></div>
+    </div>
+
+    <div class="cta">
+      <h3>Você não precisa dar esse passo sozinho</h3>
+      <p>Peça oração, converse com a nossa equipe de acolhimento, ou entre para a comunidade que recebe uma Palavra todos os dias.</p>
+      <a class="btn" href="index.html#oracao">🙏 Pedir oração</a>
+      <a class="btn" href="index.html#acolhimento">💬 Falar com alguém</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  Oração e Palavra • Jornada Conhecendo Jesus • © 2026
+</footer>
+
+<script>
+function toggleDay(botao){
+  const day = botao.closest('.day');
+  const estavaAberto = day.classList.contains('open');
+
+  document.querySelectorAll('.day.open').forEach(d => {
+    if(d !== day) d.classList.remove('open');
+  });
+
+  day.classList.toggle('open', !estavaAberto);
+}
+
+// Se a página abrir com uma âncora (#salvacao, #verdade, #esperanca),
+// abre automaticamente o primeiro dia daquela seção.
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = window.location.hash.replace('#','');
+  if(!hash) return;
+  const secao = document.getElementById(hash);
+  if(!secao) return;
+  const primeiroDia = secao.querySelector('.day');
+  if(primeiroDia) primeiroDia.classList.add('open');
+});
+</script>
+
+</body>
+</html>
