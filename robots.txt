@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /central.html
+Disallow: /painel.html
+
+Sitemap: https://oracao-e-palavra.chazaq-adm.workers.dev/sitemap.xml
