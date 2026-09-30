@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Estudos e Folhetos | Oração e Palavra</title>
+
+  <meta
+    name="description"
+    content="Estudos bíblicos, folhetos, devocionais e conteúdos para conhecer a Palavra de Deus e apontar para Jesus Cristo."
+  >
+
+  <style>
+    :root{
+      --navy:#0b1f3a;
+      --navy2:#102d50;
+      --gold:#c9a227;
+      --gold2:#e1c45a;
+      --white:#ffffff;
+      --bg:#f7f8fa;
+      --text:#243447;
+      --muted:#667085;
+      --line:#e4e7ec;
+      --shadow:0 10px 30px rgba(11,31,58,.08);
+    }
+
+    *{
+      box-sizing:border-box;
+      margin:0;
+      padding:0;
+    }
+
+    html{
+      scroll-behavior:smooth;
+    }
+
+    body{
+      font-family:Arial, Helvetica, sans-serif;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{
+      color:inherit;
+      text-decoration:none;
+    }
+
+    .container{
+      width:min(1120px,92%);
+      margin:0 auto;
+    }
+
+    /* HEADER */
+
+    header{
+      background:var(--white);
+      border-bottom:1px solid var(--line);
+      position:sticky;
+      top:0;
+      z-index:100;
+    }
+
+    .navin{
+      min-height:78px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:25px;
+      position:relative;
+    }
+
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+      font-weight:700;
+      color:var(--navy);
+    }
+
+    .brand img{
+      width:48px;
+      height:48px;
+      object-fit:contain;
+    }
+
+    .brand-text{
+      line-height:1.1;
+    }
+
+    .brand-title{
+      font-size:1.05rem;
+    }
+
+    .brand-subtitle{
+      font-size:.72rem;
+      color:var(--gold);
+      margin-top:3px;
+      letter-spacing:.05em;
+    }
+
+    .navlinks{
+      display:flex;
+      align-items:center;
+      gap:22px;
+    }
+
+    .navlinks a{
+      color:var(--navy);
+      font-size:.94rem;
+      font-weight:600;
+      padding:8px 0;
+    }
+
+    .navlinks a:hover{
+      color:var(--gold);
+    }
+
+    .menu-toggle{
+      display:none;
+      background:transparent;
+      border:0;
+      color:var(--navy);
+      font-size:2rem;
+      cursor:pointer;
+      padding:6px 10px;
+    }
+
+    /* HERO */
+
+    .hero{
+      background:
+        linear-gradient(
+          135deg,
+          var(--navy),
+          var(--navy2)
+        );
+      color:var(--white);
+      padding:75px 0 70px;
+    }
+
+    .hero-content{
+      max-width:820px;
+      margin:auto;
+      text-align:center;
+    }
+
+    .eyebrow{
+      color:var(--gold2);
+      font-weight:700;
+      text-transform:uppercase;
+      letter-spacing:.12em;
+      font-size:.78rem;
+      margin-bottom:14px;
+    }
+
+    .hero h1{
+      font-size:clamp(2rem,5vw,3.5rem);
+      line-height:1.1;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      max-width:720px;
+      margin:0 auto;
+      color:#e7edf5;
+      font-size:1.08rem;
+    }
+
+    /* CONTENT */
+
+    .section{
+      padding:65px 0;
+    }
+
+    .section-head{
+      margin-bottom:35px;
+    }
+
+    .section-head h2{
+      color:var(--navy);
+      font-size:clamp(1.7rem,4vw,2.4rem);
+      margin-bottom:10px;
+    }
+
+    .section-head p{
+      color:var(--muted);
+      max-width:760px;
+    }
+
+    /* FILTERS */
+
+    .filters{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-bottom:35px;
+    }
+
+    .filter{
+      border:1px solid var(--line);
+      background:var(--white);
+      color:var(--navy);
+      border-radius:999px;
+      padding:9px 17px;
+      cursor:pointer;
+      font-weight:600;
+      transition:.2s;
+    }
+
+    .filter:hover,
+    .filter.active{
+      background:var(--navy);
+      color:var(--white);
+      border-color:var(--navy);
+    }
+
+    /* POSTS */
+
+    .posts{
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:24px;
+    }
+
+    .post{
+      background:var(--white);
+      border:1px solid var(--line);
+      border-radius:16px;
+      overflow:hidden;
+      box-shadow:var(--shadow);
+      display:flex;
+      flex-direction:column;
+    }
+
+    .post-top{
+      background:var(--navy);
+      min-height:115px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:25px;
+      text-align:center;
+    }
+
+    .post-icon{
+      font-size:2.3rem;
+    }
+
+    .post-body{
+      padding:24px;
+      display:flex;
+      flex-direction:column;
+      flex:1;
+    }
+
+    .post-category{
+      color:var(--gold);
+      font-size:.74rem;
+      font-weight:800;
+      text-transform:uppercase;
+      letter-spacing:.08em;
+      margin-bottom:9px;
+    }
+
+    .post h3{
+      color:var(--navy);
+      font-size:1.2rem;
+      line-height:1.3;
+      margin-bottom:10px;
+    }
+
+    .post p{
+      color:var(--muted);
+      font-size:.94rem;
+      margin-bottom:20px;
+    }
+
+    .post-footer{
+      margin-top:auto;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:10px;
+    }
+
+    .post-date{
+      color:#8a94a6;
+      font-size:.78rem;
+    }
+
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      border-radius:9px;
+      padding:10px 15px;
+      font-weight:700;
+      font-size:.88rem;
+      border:1px solid transparent;
+    }
+
+    .btn-gold{
+      background:var(--gold);
+      color:var(--white);
+    }
+
+    .btn-gold:hover{
+      background:#b18c20;
+    }
+
+    .btn-outline{
+      border-color:var(--navy);
+      color:var(--navy);
+      background:var(--white);
+    }
+
+    .btn-outline:hover{
+      background:var(--navy);
+      color:var(--white);
+    }
+
+    /* EMPTY / FUTURE */
+
+    .future{
+      margin-top:35px;
+      padding:28px;
+      border:1px dashed #cfd5dd;
+      border-radius:14px;
+      background:#fff;
+      text-align:center;
+    }
+
+    .future h3{
+      color:var(--navy);
+      margin-bottom:8px;
+    }
+
+    .future p{
+      color:var(--muted);
+    }
+
+    /* CTA */
+
+    .cta{
+      background:var(--navy);
+      color:var(--white);
+      padding:55px 0;
+    }
+
+    .cta-inner{
+      text-align:center;
+      max-width:760px;
+      margin:auto;
+    }
+
+    .cta h2{
+      font-size:clamp(1.6rem,4vw,2.3rem);
+      margin-bottom:12px;
+    }
+
+    .cta p{
+      color:#dce5ef;
+      margin-bottom:24px;
+    }
+
+    /* FOOTER */
+
+    footer{
+      background:#07172b;
+      color:#dce5ef;
+      padding:30px 0;
+    }
+
+    .footer-inner{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:20px;
+    }
+
+    .footer-brand{
+      font-weight:700;
+    }
+
+    .footer-text{
+      color:#9fb0c3;
+      font-size:.85rem;
+      margin-top:4px;
+    }
+
+    .back{
+      color:var(--gold2);
+      font-weight:700;
+      font-size:.9rem;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:900px){
+
+      .menu-toggle{
+        display:block;
+      }
+
+      .navlinks{
+        display:none;
+        position:absolute;
+        top:100%;
+        left:0;
+        right:0;
+        background:#fff;
+        border-top:1px solid var(--line);
+        box-shadow:0 10px 25px rgba(0,0,0,.08);
+        padding:12px 20px;
+        z-index:50;
+      }
+
+      .navlinks.open{
+        display:flex;
+        flex-direction:column;
+        align-items:stretch;
+        gap:4px;
+      }
+
+      .navlinks a{
+        padding:12px 8px;
+      }
+
+      .posts{
+        grid-template-columns:1fr;
+      }
+
+      .footer-inner{
+        flex-direction:column;
+        text-align:center;
+      }
+    }
+
+    @media(min-width:901px){
+      .menu-toggle{
+        display:none !important;
+      }
+    }
+
+    @media(max-width:600px){
+
+      .hero{
+        padding:55px 0;
+      }
+
+      .section{
+        padding:48px 0;
+      }
+
+      .post-body{
+        padding:20px;
+      }
+
+      .brand-title{
+        font-size:.96rem;
+      }
+
+      .brand-subtitle{
+        font-size:.66rem;
+      }
+
+      .brand img{
+        width:43px;
+        height:43px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+
+  <header>
+    <div class="container navin">
+
+      <a href="index.html" class="brand">
+        <img src="logo-oracao-e-palavra.png" alt="Oração e Palavra">
+        <div class="brand-text">
+          <div class="brand-title">Oração e Palavra</div>
+          <div class="brand-subtitle">ESTUDOS E FOLHETOS</div>
+        </div>
+      </a>
+
+      <button
+        class="menu-toggle"
+        type="button"
+        onclick="toggleMenu()"
+        aria-label="Abrir menu"
+      >
+        ☰
+      </button>
+
+      <nav class="navlinks" id="navlinks">
+
+        <a href="index.html" onclick="fecharMenu()">Início</a>
+
+        <a href="index.html#palavra" onclick="fecharMenu()">
+          Palavra
+        </a>
+
+        <a href="index.html#comunidade" onclick="fecharMenu()">
+          Comunidade
+        </a>
+
+        <a href="index.html#oracao" onclick="fecharMenu()">
+          Pedir oração
+        </a>
+
+        <a href="#estudos" onclick="fecharMenu()">
+          Estudos
+        </a>
+
+      </nav>
+
+    </div>
+  </header>
+
+
+  <!-- HERO -->
+
+  <section class="hero">
+
+    <div class="container">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          Oração e Palavra
+        </div>
+
+        <h1>
+          Estudos e Folhetos
+        </h1>
+
+        <p>
+          Conteúdos para conhecer a Palavra de Deus,
+          fortalecer a fé e apontar para Jesus Cristo.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- ESTUDOS -->
+
+  <section class="section" id="estudos">
+
+    <div class="container">
+
+      <div class="section-head">
+
+        <div class="eyebrow">
+          Conteúdos
+        </div>
+
+        <h2>
+          Estudos para edificar sua fé
+        </h2>
+
+        <p>
+          Nesta área serão publicados estudos bíblicos,
+          devocionais, folhetos e materiais para leitura,
+          estudo e compartilhamento.
+        </p>
+
+      </div>
+
+
+      <!-- FILTROS -->
+
+      <div class="filters">
+
+        <button
+          class="filter active"
+          onclick="filtrarPosts('todos', this)"
+        >
+          Todos
+        </button>
+
+        <button
+          class="filter"
+          onclick="filtrarPosts('estudo', this)"
+        >
+          Estudos Bíblicos
+        </button>
+
+        <button
+          class="filter"
+          onclick="filtrarPosts('folheto', this)"
+        >
+          Folhetos
+        </button>
+
+        <button
+          class="filter"
+          onclick="filtrarPosts('devocional', this)"
+        >
+          Devocionais
+        </button>
+
+        <button
+          class="filter"
+          onclick="filtrarPosts('doutrina', this)"
+        >
+          Doutrina Apostólica
+        </button>
+
+      </div>
+
+
+      <!-- PUBLICAÇÕES -->
+
+      <div class="posts">
+
+
+        <!-- PUBLICAÇÃO 1 -->
+
+        <article class="post" data-categoria="estudo">
+
+          <div class="post-top">
+            <div class="post-icon">📖</div>
+          </div>
+
+          <div class="post-body">
+
+            <div class="post-category">
+              Estudo Bíblico
+            </div>
+
+            <h3>
+              Em breve: novos estudos da Palavra de Deus
+            </h3>
+
+            <p>
+              Esta área está sendo preparada para receber
+              estudos bíblicos e conteúdos de edificação.
+            </p>
+
+            <div class="post-footer">
+
+              <span class="post-date">
+                Oração e Palavra
+              </span>
+
+              <span class="btn btn-outline">
+                Em breve
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PUBLICAÇÃO 2 -->
+
+        <article class="post" data-categoria="folheto">
+
+          <div class="post-top">
+            <div class="post-icon">📝</div>
+          </div>
+
+          <div class="post-body">
+
+            <div class="post-category">
+              Folheto de Estudo
+            </div>
+
+            <h3>
+              Materiais para estudo e evangelização
+            </h3>
+
+            <p>
+              Em breve você encontrará aqui folhetos digitais
+              preparados para leitura, impressão e compartilhamento.
+            </p>
+
+            <div class="post-footer">
+
+              <span class="post-date">
+                Oração e Palavra
+              </span>
+
+              <span class="btn btn-outline">
+                Em breve
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PUBLICAÇÃO 3 -->
+
+        <article class="post" data-categoria="devocional">
+
+          <div class="post-top">
+            <div class="post-icon">🙏</div>
+          </div>
+
+          <div class="post-body">
+
+            <div class="post-category">
+              Devocional
+            </div>
+
+            <h3>
+              Uma Palavra para cada dia
+            </h3>
+
+            <p>
+              Conteúdos devocionais para reflexão,
+              oração e fortalecimento espiritual.
+            </p>
+
+            <div class="post-footer">
+
+              <span class="post-date">
+                Oração e Palavra
+              </span>
+
+              <span class="btn btn-outline">
+                Em breve
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+        <!-- PUBLICAÇÃO 4 -->
+
+        <article class="post" data-categoria="doutrina">
+
+          <div class="post-top">
+            <div class="post-icon">✝️</div>
+          </div>
+
+          <div class="post-body">
+
+            <div class="post-category">
+              Doutrina Apostólica
+            </div>
+
+            <h3>
+              Conhecendo Jesus
+            </h3>
+
+            <p>
+              Série de estudos preparada para apresentar
+              Jesus Cristo, sua Palavra e o caminho da salvação.
+            </p>
+
+            <div class="post-footer">
+
+              <span class="post-date">
+                Série em preparação
+              </span>
+
+              <span class="btn btn-outline">
+                Em breve
+              </span>
+
+            </div>
+
+          </div>
+
+        </article>
+
+
+      </div>
+
+
+      <div class="future">
+
+        <h3>
+          Novos conteúdos serão publicados aqui
+        </h3>
+
+        <p>
+          Estudos, folhetos e materiais de apoio serão
+          acrescentados progressivamente.
+        </p>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- CTA -->
+
+  <section class="cta">
+
+    <div class="container">
+
+      <div class="cta-inner">
+
+        <h2>
+          Precisa de oração?
+        </h2>
+
+        <p>
+          Se você está passando por um momento difícil,
+          envie seu pedido. Nossa equipe estará em oração.
+        </p>
+
+        <a
+          href="index.html#oracao"
+          class="btn btn-gold"
+        >
+          Pedir oração →
+        </a>
+
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+
+  <footer>
+
+    <div class="container footer-inner">
+
+      <div>
+
+        <div class="footer-brand">
+          Oração e Palavra
+        </div>
+
+        <div class="footer-text">
+          Perseverando na oração e no ministério da Palavra.
+        </div>
+
+      </div>
+
+      <a href="index.html" class="back">
+        ← Voltar ao site
+      </a>
+
+    </div>
+
+  </footer>
+
+
+  <script>
+
+    function toggleMenu(){
+
+      document
+        .getElementById('navlinks')
+        .classList
+        .toggle('open');
+
+    }
+
+
+    function fecharMenu(){
+
+      document
+        .getElementById('navlinks')
+        .classList
+        .remove('open');
+
+    }
+
+
+    function filtrarPosts(categoria, botao){
+
+      const posts =
+        document.querySelectorAll('.post');
+
+      const botoes =
+        document.querySelectorAll('.filter');
+
+
+      botoes.forEach(function(item){
+
+        item.classList.remove('active');
+
+      });
+
+
+      botao.classList.add('active');
+
+
+      posts.forEach(function(post){
+
+        if(
+          categoria === 'todos' ||
+          post.dataset.categoria === categoria
+        ){
+
+          post.style.display = 'flex';
+
+        }else{
+
+          post.style.display = 'none';
+
+        }
+
+      });
+
+    }
+
+  </script>
+
+</body>
+</html>
