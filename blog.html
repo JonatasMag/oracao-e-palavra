@@ -619,187 +619,45 @@
       </div>
 
 
-      <!-- PUBLICAÇÕES -->
+      <!-- PUBLICAÇÕES DA BIBLIOTECA -->
 
-      <div class="posts">
+<div class="posts" id="posts">
+  
+  <article class="post">
+    <div class="post-top">
+      <div class="post-icon">📚</div>
+    </div>
 
-
-        <!-- PUBLICAÇÃO 1 -->
-
-        <article class="post" data-categoria="estudo">
-
-          <div class="post-top">
-            <div class="post-icon">📖</div>
-          </div>
-
-          <div class="post-body">
-
-            <div class="post-category">
-              Estudo Bíblico
-            </div>
-
-            <h3>
-              Em breve: novos estudos da Palavra de Deus
-            </h3>
-
-            <p>
-              Esta área está sendo preparada para receber
-              estudos bíblicos e conteúdos de edificação.
-            </p>
-
-            <div class="post-footer">
-
-              <span class="post-date">
-                Oração e Palavra
-              </span>
-
-              <span class="btn btn-outline">
-                Em breve
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PUBLICAÇÃO 2 -->
-
-        <article class="post" data-categoria="folheto">
-
-          <div class="post-top">
-            <div class="post-icon">📝</div>
-          </div>
-
-          <div class="post-body">
-
-            <div class="post-category">
-              Folheto de Estudo
-            </div>
-
-            <h3>
-              Materiais para estudo e evangelização
-            </h3>
-
-            <p>
-              Em breve você encontrará aqui folhetos digitais
-              preparados para leitura, impressão e compartilhamento.
-            </p>
-
-            <div class="post-footer">
-
-              <span class="post-date">
-                Oração e Palavra
-              </span>
-
-              <span class="btn btn-outline">
-                Em breve
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PUBLICAÇÃO 3 -->
-
-        <article class="post" data-categoria="devocional">
-
-          <div class="post-top">
-            <div class="post-icon">🙏</div>
-          </div>
-
-          <div class="post-body">
-
-            <div class="post-category">
-              Devocional
-            </div>
-
-            <h3>
-              Uma Palavra para cada dia
-            </h3>
-
-            <p>
-              Conteúdos devocionais para reflexão,
-              oração e fortalecimento espiritual.
-            </p>
-
-            <div class="post-footer">
-
-              <span class="post-date">
-                Oração e Palavra
-              </span>
-
-              <span class="btn btn-outline">
-                Em breve
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
-        <!-- PUBLICAÇÃO 4 -->
-
-        <article class="post" data-categoria="doutrina">
-
-          <div class="post-top">
-            <div class="post-icon">✝️</div>
-          </div>
-
-          <div class="post-body">
-
-            <div class="post-category">
-              Doutrina Apostólica
-            </div>
-
-            <h3>
-              Conhecendo Jesus
-            </h3>
-
-            <p>
-              Série de estudos preparada para apresentar
-              Jesus Cristo, sua Palavra e o caminho da salvação.
-            </p>
-
-            <div class="post-footer">
-
-              <span class="post-date">
-                Série em preparação
-              </span>
-
-              <span class="btn btn-outline">
-                Em breve
-              </span>
-
-            </div>
-
-          </div>
-
-        </article>
-
-
+    <div class="post-body">
+      <div class="post-category">
+        Biblioteca
       </div>
 
+      <h3>
+        Carregando materiais...
+      </h3>
 
-      <div class="future">
+      <p>
+        Aguarde enquanto carregamos os estudos, devocionais,
+        materiais de doutrina e folhetos.
+      </p>
+    </div>
+  </article>
 
-        <h3>
-          Novos conteúdos serão publicados aqui
-        </h3>
+</div>
 
-        <p>
-          Estudos, folhetos e materiais de apoio serão
-          acrescentados progressivamente.
-        </p>
+<div class="future" id="mensagem-vazia" style="display:none;">
 
-      </div>
+  <h3>
+    Novos conteúdos serão publicados aqui
+  </h3>
 
+  <p>
+    Estudos, folhetos, devocionais e materiais de apoio
+    serão acrescentados progressivamente.
+  </p>
+
+</div>
     </div>
 
   </section>
@@ -885,44 +743,171 @@
     }
 
 
-    function filtrarPosts(categoria, botao){
+async function carregarBiblioteca(){
 
-      const posts =
-        document.querySelectorAll('.post');
+  const posts = document.getElementById('posts');
+  const mensagemVazia = document.getElementById('mensagem-vazia');
 
-      const botoes =
-        document.querySelectorAll('.filter');
+  try{
 
+    const resposta = await fetch('biblioteca.json');
 
-      botoes.forEach(function(item){
+    if(!resposta.ok){
+      throw new Error('Não foi possível carregar a biblioteca.');
+    }
 
-        item.classList.remove('active');
+    const dados = await resposta.json();
 
-      });
+    posts.innerHTML = '';
 
+    if(!dados.materiais || dados.materiais.length === 0){
 
-      botao.classList.add('active');
-
-
-      posts.forEach(function(post){
-
-        if(
-          categoria === 'todos' ||
-          post.dataset.categoria === categoria
-        ){
-
-          post.style.display = 'flex';
-
-        }else{
-
-          post.style.display = 'none';
-
-        }
-
-      });
+      mensagemVazia.style.display = 'block';
+      return;
 
     }
 
+    mensagemVazia.style.display = 'none';
+
+    dados.materiais.forEach(function(material){
+
+      const artigo = document.createElement('article');
+
+      artigo.className = 'post';
+
+      artigo.dataset.categoria = material.categoria || '';
+
+      artigo.innerHTML = `
+
+        <div class="post-top">
+
+          ${
+            material.capa
+            ? `<img
+                src="${material.capa}"
+                alt="${material.titulo}"
+                style="width:100%;height:180px;object-fit:cover;">
+              `
+            : `<div class="post-icon">📖</div>`
+          }
+
+        </div>
+
+        <div class="post-body">
+
+          <div class="post-category">
+            ${material.categoria_nome || material.categoria || 'Material'}
+          </div>
+
+          <h3>
+            ${material.titulo}
+          </h3>
+
+          <p>
+            ${material.descricao || ''}
+          </p>
+
+          <div class="post-footer">
+
+            <span class="post-date">
+              ${material.data || 'Oração e Palavra'}
+            </span>
+
+            ${
+              material.pdf
+              ? `<a
+                  class="btn btn-gold"
+                  href="${material.pdf}"
+                  target="_blank"
+                  rel="noopener noreferrer">
+                  Abrir PDF
+                </a>`
+              : ''
+            }
+
+          </div>
+
+        </div>
+      `;
+
+      posts.appendChild(artigo);
+
+    });
+
+  }catch(erro){
+
+    posts.innerHTML = `
+
+      <article class="post">
+
+        <div class="post-top">
+          <div class="post-icon">📚</div>
+        </div>
+
+        <div class="post-body">
+
+          <div class="post-category">
+            Biblioteca
+          </div>
+
+          <h3>
+            Biblioteca em preparação
+          </h3>
+
+          <p>
+            Os materiais serão disponibilizados em breve.
+          </p>
+
+        </div>
+
+      </article>
+
+    `;
+
+    console.error(erro);
+
+  }
+
+}
+
+
+function filtrarPosts(categoria, botao){
+
+  const posts =
+    document.querySelectorAll('.post');
+
+  const botoes =
+    document.querySelectorAll('.filter');
+
+  botoes.forEach(function(item){
+
+    item.classList.remove('active');
+
+  });
+
+  botao.classList.add('active');
+
+  posts.forEach(function(post){
+
+    if(
+      categoria === 'todos' ||
+      post.dataset.categoria === categoria
+    ){
+
+      post.style.display = 'flex';
+
+    }else{
+
+      post.style.display = 'none';
+
+    }
+
+  });
+
+}
+
+
+carregarBiblioteca();
   </script>
 
 </body>
