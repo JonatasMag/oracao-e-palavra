@@ -2,8 +2,8 @@
   "materiais": [
     {
       "titulo": "6 Lições Surpreendentes de Gênesis",
-      "categoria": "Estudo",
-      "categoria_nome": "Estudos Bíblicos",
+      "categoria": "estudo",
+      "categoria_nome": "Estudo Bíblico",
       "descricao": "Uma reflexão sobre seis lições de Gênesis e como suas narrativas apontam para princípios espirituais relacionados à graça de Deus, responsabilidade humana, aliança, intercessão e transformação espiritual.",
       "capa": "./biblioteca/Estudos/capas/1_6-Licoes-Surpreendentes-de-Genesis.png",
       "pdf": "./biblioteca/Estudos/6-Licoes-Surpreendentes-de-Genesis.pdf",
