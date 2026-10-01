@@ -23,8 +23,8 @@
       "categoria": "doutrina",
       "categoria_nome": "Doutrina",
       "descricao": "Um estudo sobre a ordem de batismo dada por Jesus em Mateus 28:19, examinando como a igreja primitiva a cumpriu segundo o livro de Atos.",
-      "capa": "./biblioteca/Doutrina/capas/mateus-28-19.png",
-      "pdf": "./biblioteca/Doutrina/mateus-28-19.pdf",
+      "capa": "./biblioteca/doutrina/capas/mateus-28-19.png",
+      "pdf": "./biblioteca/doutrina/mateus-28-19.pdf",
       "data": "Pr. Manoel Magalhães"
     },
     {
@@ -32,8 +32,8 @@
       "categoria": "doutrina",
       "categoria_nome": "Doutrina",
       "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
-      "capa": "./biblioteca/Doutrina/capas/o-que-a-biblia-fala-sobre-o-batismo.png",
-      "pdf": "./biblioteca/Doutrina/o-que-a-biblia-fala-sobre-o-batismo.pdf",
+      "capa": "./biblioteca/doutrina/capas/o-que-a-biblia-fala-sobre-o-batismo.png",
+      "pdf": "./biblioteca/doutrina/o-que-a-biblia-fala-sobre-o-batismo.pdf",
       "data": "Pr. Manoel Magalhães"
     }
   ],
