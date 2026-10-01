@@ -35,12 +35,41 @@
       "capa": "./biblioteca/Estudos/capas/o-que-a-biblia-fala-sobre-o-batismo.png",
       "pdf": "./biblioteca/doutrina/o-que-a-biblia-fala-sobre-o-batismo.pdf",
       "data": "Pr. Manoel Magalhães"
+    },
+    {
+      "titulo": "1ª Semana - Raiz/Pessoal",
+      "categoria": "devocionais",
+      "categoria_nome": "Devocional",
+      "descricao": "A vida pessoal com Deus em primeiro lugar - 7 dias de curar pessoal",
+      "capa": "./biblioteca/Estudos/capas/pessoal.png",
+      "pdf": "./biblioteca/devocionais/pessoal.pdf",
+      "data": "Oração e Palavra"
+    },
+    {
+      "titulo": "2ª Semana - Lar/Família",
+      "categoria": "devocionais",
+      "categoria_nome": "Devocional",
+      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "capa": "./biblioteca/Estudos/capas/familia.png",
+      "pdf": "./biblioteca/devocionais/familia.pdf",
+      "data": "Oração e Palavra"
+    },
+    {
+      "titulo": "3ª Semana - Mordomia/Finanças",
+      "categoria": "devocionais",
+      "categoria_nome": "Devocional",
+      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "capa": "./biblioteca/Estudos/capas/financeira.png",
+      "pdf": "./biblioteca/devocionais/financeira.pdf",
+      "data": "Oração e Palavra"
+    },
+    {
+      "titulo": "4ª Semana - Ponte/Social",
+      "categoria": "devocionais",
+      "categoria_nome": "Devocional",
+      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "capa": "./biblioteca/Estudos/capas/social.png",
+      "pdf": "./biblioteca/devocionais/social.pdf",
+      "data": "Oração e Palavra"
     }
-  ],
-  "categorias_disponiveis": [
-    { "categoria": "estudo", "categoria_nome": "Estudo Bíblico" },
-    { "categoria": "folheto", "categoria_nome": "Folheto" },
-    { "categoria": "devocional", "categoria_nome": "Devocionais" },
-    { "categoria": "doutrina", "categoria_nome": "Doutrina" }
-  ]
-}
+  },
