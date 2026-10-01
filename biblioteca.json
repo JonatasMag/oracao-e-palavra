@@ -11,16 +11,3 @@
     }
   ]
 }
-
-{
-  "materiais": [
-    {
-      "titulo": "Em Breve",
-      "categoria": "folhetos",
-      "categoria_nome": "Folheto",
-      "descricao": "Uma reflexão sobre as sete naturezas e os dois homens.",
-      "png": "./biblioteca/Folhetos/"Em breve",
-      "data": "Oração e Palavra"
-    }
-  ]
-}
