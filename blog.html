@@ -10,6 +10,18 @@
     name="description"
     content="Estudos bíblicos, folhetos, devocionais e conteúdos para conhecer a Palavra de Deus e apontar para Jesus Cristo."
   >
+  <meta name="theme-color" content="#0b2345">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://oracao-e-palavra.chazaq-adm.workers.dev/blog.html">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:site_name" content="Oração e Palavra">
+  <meta property="og:url" content="https://oracao-e-palavra.chazaq-adm.workers.dev/blog.html">
+  <meta property="og:title" content="Estudos e Folhetos | Oração e Palavra">
+  <meta property="og:description" content="Estudos bíblicos, folhetos, devocionais e conteúdos para conhecer a Palavra de Deus e apontar para Jesus Cristo.">
+  <meta property="og:image" content="https://oracao-e-palavra.chazaq-adm.workers.dev/logo-oracao-e-palavra.png">
+  <link rel="icon" type="image/png" href="favicon-oracao-e-palavra.png">
+  <link rel="apple-touch-icon" href="favicon-oracao-e-palavra.png">
 
   <style>
     :root{
@@ -36,7 +48,7 @@
     }
 
     body{
-      font-family:Arial, Helvetica, sans-serif;
+      font-family:Inter,Segoe UI,Arial,sans-serif;
       background:var(--bg);
       color:var(--text);
       line-height:1.6;
@@ -156,6 +168,7 @@
     }
 
     .hero h1{
+      font-family:Georgia,serif;
       font-size:clamp(2rem,5vw,3.5rem);
       line-height:1.1;
       margin-bottom:20px;
@@ -179,6 +192,7 @@
     }
 
     .section-head h2{
+      font-family:Georgia,serif;
       color:var(--navy);
       font-size:clamp(1.7rem,4vw,2.4rem);
       margin-bottom:10px;
@@ -265,6 +279,7 @@
     }
 
     .post h3{
+      font-family:Georgia,serif;
       color:var(--navy);
       font-size:1.2rem;
       line-height:1.3;
@@ -356,6 +371,7 @@
     }
 
     .cta h2{
+      font-family:Georgia,serif;
       font-size:clamp(1.6rem,4vw,2.3rem);
       margin-bottom:12px;
     }
@@ -887,6 +903,8 @@ function filtrarPosts(categoria, botao){
 
   botao.classList.add('active');
 
+  let algumVisivel = false;
+
   posts.forEach(function(post){
 
     if(
@@ -895,6 +913,7 @@ function filtrarPosts(categoria, botao){
     ){
 
       post.style.display = 'flex';
+      algumVisivel = true;
 
     }else{
 
@@ -903,6 +922,29 @@ function filtrarPosts(categoria, botao){
     }
 
   });
+
+  const mensagemVazia =
+    document.getElementById('mensagem-vazia');
+
+  if(posts.length > 0){
+
+    if(!algumVisivel){
+
+      mensagemVazia.querySelector('h3').textContent =
+        'Nenhum material nesta categoria ainda';
+
+      mensagemVazia.querySelector('p').textContent =
+        'Novos conteúdos para esta categoria serão publicados em breve.';
+
+      mensagemVazia.style.display = 'block';
+
+    }else{
+
+      mensagemVazia.style.display = 'none';
+
+    }
+
+  }
 
 }
 
