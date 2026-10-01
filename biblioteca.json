@@ -38,7 +38,7 @@
     },
     {
       "titulo": "1ª Semana - Raiz/Pessoal",
-      "categoria": "devocionais",
+      "categoria": "devocional",
       "categoria_nome": "Devocional",
       "descricao": "A vida pessoal com Deus em primeiro lugar - 7 dias de cura pessoal.",
       "capa": "./biblioteca/Estudos/capas/pessoal.png",
@@ -47,7 +47,7 @@
     },
     {
       "titulo": "2ª Semana - Lar/Família",
-      "categoria": "devocionais",
+      "categoria": "devocional",
       "categoria_nome": "Devocional",
       "descricao": "O amor que se multiplica em casa - 7 dias de cura Familiar.",
       "capa": "./biblioteca/Estudos/capas/familia.png",
@@ -56,7 +56,7 @@
     },
     {
       "titulo": "3ª Semana - Mordomia/Finanças",
-      "categoria": "devocionais",
+      "categoria": "devocional",
       "categoria_nome": "Devocional",
       "descricao": "Confiança nas mãos de Deus com o que Ele confiou às suas - 7 dias de cura Financeira.",
       "capa": "./biblioteca/Estudos/capas/financeira.png",
@@ -65,7 +65,7 @@
     },
     {
       "titulo": "4ª Semana - Ponte/Social",
-      "categoria": "devocionais",
+      "categoria": "devocional",
       "categoria_nome": "Devocional",
       "descricao": "O amor que alcança o próximo - 7 dias de cura Social.",
       "capa": "./biblioteca/Estudos/capas/social.png",
