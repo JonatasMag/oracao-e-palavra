@@ -40,7 +40,7 @@
       "titulo": "1ª Semana - Raiz/Pessoal",
       "categoria": "devocionais",
       "categoria_nome": "Devocional",
-      "descricao": "A vida pessoal com Deus em primeiro lugar - 7 dias de curar pessoal",
+      "descricao": "A vida pessoal com Deus em primeiro lugar - 7 dias de cura pessoal.",
       "capa": "./biblioteca/Estudos/capas/pessoal.png",
       "pdf": "./biblioteca/devocionais/pessoal.pdf",
       "data": "Oração e Palavra"
@@ -49,7 +49,7 @@
       "titulo": "2ª Semana - Lar/Família",
       "categoria": "devocionais",
       "categoria_nome": "Devocional",
-      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "descricao": "O amor que se multiplica em casa - 7 dias de cura Familiar.",
       "capa": "./biblioteca/Estudos/capas/familia.png",
       "pdf": "./biblioteca/devocionais/familia.pdf",
       "data": "Oração e Palavra"
@@ -58,7 +58,7 @@
       "titulo": "3ª Semana - Mordomia/Finanças",
       "categoria": "devocionais",
       "categoria_nome": "Devocional",
-      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "descricao": "Confiança nas mãos de Deus com o que Ele confiou às suas - 7 dias de cura Financeira.",
       "capa": "./biblioteca/Estudos/capas/financeira.png",
       "pdf": "./biblioteca/devocionais/financeira.pdf",
       "data": "Oração e Palavra"
@@ -67,7 +67,7 @@
       "titulo": "4ª Semana - Ponte/Social",
       "categoria": "devocionais",
       "categoria_nome": "Devocional",
-      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "descricao": "O amor que alcança o próximo - 7 dias de cura Social.",
       "capa": "./biblioteca/Estudos/capas/social.png",
       "pdf": "./biblioteca/devocionais/social.pdf",
       "data": "Oração e Palavra"
