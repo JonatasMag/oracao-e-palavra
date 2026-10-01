@@ -7,9 +7,9 @@
       "estado": "SC",
       "cep": "89229-030",
       "telefone": "47 9 9273-4973",
-      "latitude": -26.3230,
-      "longitude": -48.8158,
-      "coordenada_aproximada": true
+      "latitude": -26.317315,
+      "longitude": -48.8170867,
+      "coordenada_aproximada": false
     }
   ]
 }
