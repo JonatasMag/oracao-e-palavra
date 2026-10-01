@@ -8,6 +8,39 @@
       "capa": "./biblioteca/Estudos/capas/1_6-Licoes-Surpreendentes-de-Genesis.png",
       "pdf": "./biblioteca/Estudos/6-Licoes-Surpreendentes-de-Genesis.pdf",
       "data": "Oração e Palavra"
+    },
+    {
+      "titulo": "Cinco Passos para o Homem Chegar à Eternidade",
+      "categoria": "folheto",
+      "categoria_nome": "Folheto",
+      "descricao": "Um roteiro simples e direto, com referências bíblicas: arrependimento, batismo, o dom do Espírito Santo, paz com todos e santidade no viver.",
+      "capa": "./biblioteca/Folhetos/capas/cinco-passos-eternidade.png",
+      "pdf": "./biblioteca/Folhetos/cinco-passos-eternidade.png",
+      "data": "Pr. Jonatas Magalhães"
+    },
+    {
+      "titulo": "Mateus 28:19 — O Batismo Segundo a Ordem de Jesus",
+      "categoria": "doutrina",
+      "categoria_nome": "Doutrina",
+      "descricao": "Um estudo sobre a ordem de batismo dada por Jesus em Mateus 28:19, examinando como a igreja primitiva a cumpriu segundo o livro de Atos.",
+      "capa": "./biblioteca/Doutrina/capas/mateus-28-19.png",
+      "pdf": "./biblioteca/Doutrina/mateus-28-19.pdf",
+      "data": "Pr. Manoel Magalhães"
+    },
+    {
+      "titulo": "O Que a Bíblia Fala Sobre o Batismo",
+      "categoria": "doutrina",
+      "categoria_nome": "Doutrina",
+      "descricao": "Um estudo doutrinário sobre o batismo nas águas à luz das Escrituras.",
+      "capa": "./biblioteca/Doutrina/capas/o-que-a-biblia-fala-sobre-o-batismo.png",
+      "pdf": "./biblioteca/Doutrina/o-que-a-biblia-fala-sobre-o-batismo.pdf",
+      "data": "Pr. Manoel Magalhães"
     }
+  ],
+  "categorias_disponiveis": [
+    { "categoria": "estudo", "categoria_nome": "Estudo Bíblico" },
+    { "categoria": "folheto", "categoria_nome": "Folheto" },
+    { "categoria": "devocional", "categoria_nome": "Devocionais" },
+    { "categoria": "doutrina", "categoria_nome": "Doutrina" }
   ]
 }
