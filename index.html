@@ -205,6 +205,7 @@ footer a:hover{color:#fff}
   <a href="#pregacoes" onclick="fecharMenu()">Pregações</a>
   <a href="#comunidade" onclick="fecharMenu()">Comunidade</a>
   <a href="blog.html">Estudos</a>
+  <a href="igrejas.html">Igrejas</a>
   <a href="#pastor" onclick="fecharMenu()">Sobre</a>
   <!-- Link para /central.html removido do menu público de propósito: -->
   <!-- a área administrativa continua acessível digitando a URL direta, -->
@@ -488,7 +489,7 @@ footer a:hover{color:#fff}
         </a>
       </div>
     </div>
-    <div><h3>Navegação</h3><p><a href="#palavra">A Palavra</a></p><p><a href="#oracao">Peça Oração</a></p><p><a href="#pregacoes">Pregações</a></p><p><a href="#comunidade">Comunidade</a></p></div>
+    <div><h3>Navegação</h3><p><a href="#palavra">A Palavra</a></p><p><a href="conhecendo-jesus.html">Conhecendo Jesus</a></p><p><a href="#oracao">Peça Oração</a></p><p><a href="#pregacoes">Pregações</a></p><p><a href="#comunidade">Comunidade</a></p><p><a href="blog.html">Estudos</a></p><p><a href="igrejas.html">Igrejas</a></p></div>
     <div><h3>Projeto</h3><p>Pr. Jonatas H. Magalhães</p><p class="small">© 2026 Oração e Palavra. Conteúdo cristão.</p></div>
   </div>
 </footer>
@@ -651,7 +652,7 @@ function respostaPara(msg){
     return { urgente:false, texto:'Obrigado por confiar em nós. Um membro da nossa equipe de acolhimento pode continuar esta conversa em breve. Enquanto isso, você também pode deixar seu pedido de oração no formulário acima.' };
   }
   if(t.includes('igreja')){
-    return { urgente:false, texto:'Ótimo! Nos conte sua cidade no pedido de oração ou pela nossa comunidade do WhatsApp que buscamos uma congregação próxima de você.' };
+    return { urgente:false, texto:'Ótimo! Visite nossa página de Igrejas Parceiras, onde você pode ver no mapa as igrejas mais próximas de você, ou nos conte sua cidade no pedido de oração que buscamos uma congregação próxima.' };
   }
   return { urgente:false, texto:'Obrigado por compartilhar isso. Nossa equipe pode continuar esta conversa em breve. Enquanto isso, você pode deixar seu pedido de oração no formulário acima.' };
 }
