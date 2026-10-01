@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Encontre igrejas parceiras do projeto Oração e Palavra perto de você, em um mapa interativo.">
+<meta name="theme-color" content="#0b2345">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://oracao-e-palavra.chazaq-adm.workers.dev/igrejas.html">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Oração e Palavra">
+<meta property="og:url" content="https://oracao-e-palavra.chazaq-adm.workers.dev/igrejas.html">
+<meta property="og:title" content="Igrejas Parceiras | Oração e Palavra">
+<meta property="og:description" content="Encontre igrejas parceiras perto de você em um mapa interativo.">
+<meta property="og:image" content="https://oracao-e-palavra.chazaq-adm.workers.dev/logo-oracao-e-palavra.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Igrejas Parceiras | Oração e Palavra">
+<meta name="twitter:description" content="Encontre igrejas parceiras perto de você em um mapa interativo.">
+<meta name="twitter:image" content="https://oracao-e-palavra.chazaq-adm.workers.dev/logo-oracao-e-palavra.png">
+<link rel="icon" type="image/png" href="favicon-oracao-e-palavra.png">
+<link rel="apple-touch-icon" href="favicon-oracao-e-palavra.png">
+<title>Igrejas Parceiras | Oração e Palavra</title>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<style>
+:root{
+  --navy:#0b2345; --navy2:#12345f; --gold:#c9962d; --gold2:#e4bd67;
+  --white:#fff; --ink:#172033; --muted:#647084; --soft:#f5f7fa;
+  --line:#e7ebf0; --shadow:0 18px 50px rgba(11,35,69,.10);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;color:var(--ink);background:#fff;line-height:1.65}
+a{text-decoration:none;color:inherit}
+img{max-width:100%;display:block}
+.container{width:min(1160px,92%);margin:auto}
+.topbar{background:var(--navy);color:#fff;text-align:center;padding:9px 15px;font-size:.88rem}
+nav{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.navin{min-height:74px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.brand{display:flex;align-items:center;gap:12px;font-weight:800;color:var(--navy)}
+.brand img{width:56px;height:56px;object-fit:contain}
+.brand span{font-size:1rem;letter-spacing:.02em}
+.navlinks{display:flex;gap:20px;align-items:center;font-size:.9rem;font-weight:700}
+.navlinks a:hover{color:var(--gold)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 20px;border-radius:999px;font-weight:800;border:1px solid transparent;cursor:pointer;transition:.2s;font-size:.88rem}
+.btn-gold{background:var(--gold);color:#fff}
+.btn-gold:hover{transform:translateY(-2px);background:#b78420}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-outline{border-color:#cbd4df;color:var(--navy);background:#fff}
+.hero{background:linear-gradient(135deg,#fff 0%,#f7f9fc 65%,#fff 100%);padding:56px 0 40px}
+.kicker{color:var(--gold);font-weight:900;letter-spacing:.12em;text-transform:uppercase;font-size:.8rem}
+h1{font-family:Georgia,serif;font-size:clamp(2.1rem,4.4vw,3.4rem);line-height:1.08;color:var(--navy);margin:12px 0 16px}
+.lead{font-size:1.08rem;color:#4b586d;max-width:720px}
+.section{padding:0 0 70px}
+#mapa{
+  height:420px;
+  width:100%;
+  border-radius:20px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--line);
+  margin-bottom:34px;
+}
+.lista{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:20px;
+}
+.igreja{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:24px;
+  box-shadow:0 10px 30px rgba(11,35,69,.05);
+}
+.igreja h3{
+  font-family:Georgia,serif;
+  color:var(--navy);
+  margin:0 0 8px;
+  font-size:1.2rem;
+}
+.igreja p{
+  margin:4px 0;
+  color:var(--muted);
+  font-size:.94rem;
+}
+.igreja .acoes{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin-top:16px;
+}
+.vazio{
+  text-align:center;
+  padding:40px 20px;
+  color:var(--muted);
+  background:var(--soft);
+  border-radius:20px;
+}
+.cadastro{
+  background:var(--soft);
+  border-radius:24px;
+  padding:34px;
+  margin-top:46px;
+  text-align:center;
+}
+.cadastro h2{
+  font-family:Georgia,serif;
+  color:var(--navy);
+  margin:0 0 10px;
+  font-size:1.6rem;
+}
+.cadastro p{color:var(--muted);max-width:620px;margin:0 auto 20px}
+footer{background:#071a33;color:#cbd8e8;padding:40px 0 25px;text-align:center;margin-top:50px}
+.small{font-size:.83rem;color:#91a3b9}
+footer a{color:#cbd8e8;font-weight:700}
+footer a:hover{color:#fff}
+.icone-igreja{
+  background:var(--navy);
+  width:34px;
+  height:34px;
+  border-radius:50% 50% 50% 0;
+  border:3px solid var(--gold);
+  transform:rotate(-45deg);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  box-shadow:0 4px 10px rgba(0,0,0,.3);
+}
+.icone-igreja span{
+  transform:rotate(45deg);
+  font-size:15px;
+}
+@media(max-width:720px){
+  .lista{grid-template-columns:1fr}
+  .menu-toggle{display:block}
+  .navlinks{
+    display:none;
+    position:absolute;
+    top:100%;left:0;right:0;
+    background:#fff;
+    border-top:1px solid var(--line);
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+    padding:12px 20px;
+    z-index:50;
+  }
+  .navlinks.open{display:flex;flex-direction:column;align-items:stretch;gap:4px}
+  .navlinks a{padding:12px 8px}
+}
+@media(min-width:721px){
+  .menu-toggle{display:none !important}
+}
+</style>
+</head>
+<body>
+<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+
+<nav>
+  <div class="container navin">
+    <a class="brand" href="index.html">
+      <img src="logo-oracao-e-palavra.png" alt="Logo Oração e Palavra">
+      <span>ORAÇÃO E PALAVRA</span>
+    </a>
+    <button class="menu-toggle" onclick="toggleMenu()" aria-label="Abrir menu">☰</button>
+    <div class="navlinks" id="navlinks">
+      <a href="index.html#palavra">A Palavra</a>
+      <a href="conhecendo-jesus.html">Conhecendo Jesus</a>
+      <a href="index.html#oracao">Peça Oração</a>
+      <a href="index.html#pregacoes">Pregações</a>
+      <a href="blog.html">Estudos</a>
+      <a href="igrejas.html">Igrejas</a>
+      <a href="index.html#pastor">Sobre</a>
+    </div>
+  </div>
+</nav>
+
+<main>
+<section class="hero">
+  <div class="container">
+    <div class="kicker">Igrejas parceiras</div>
+    <h1>Encontre uma igreja perto de você</h1>
+    <p class="lead">Este mapa reúne igrejas parceiras do projeto Oração e Palavra. Explore os marcadores ou a lista abaixo para encontrar uma congregação próxima, ver o endereço e falar diretamente com ela.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div id="mapa"></div>
+    <div class="lista" id="lista"></div>
+
+    <div class="cadastro">
+      <h2>⛪ Sua igreja pode fazer parte deste mapa</h2>
+      <p>Se sua igreja deseja ser uma parceira do projeto Oração e Palavra e aparecer neste mapa, entre em contato conosco pela nossa comunidade do WhatsApp ou pelo formulário de oração.</p>
+      <a class="btn btn-gold" href="https://whatsapp.com/channel/0029VbDAvROKbYMThxZzgJ0v" target="_blank" rel="noopener noreferrer">Falar conosco →</a>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="container">
+    <p><strong>Oração e Palavra</strong></p>
+    <p class="small">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</p>
+    <p class="small"><a href="index.html">← Voltar ao site</a></p>
+    <p class="small">© 2026 Oração e Palavra. Conteúdo cristão.</p>
+  </div>
+</footer>
+
+<script>
+
+window.toggleMenu = function(){
+  document.getElementById('navlinks').classList.toggle('open');
+};
+
+// Centro padrão: Joinville-SC
+const CENTRO_PADRAO = [-26.3045, -48.8487];
+
+const mapa = L.map('mapa').setView(CENTRO_PADRAO, 12);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+  maxZoom: 19
+}).addTo(mapa);
+
+const iconeIgreja = L.divIcon({
+  className: '',
+  html: '<div class="icone-igreja"><span>⛪</span></div>',
+  iconSize: [34, 34],
+  iconAnchor: [17, 34],
+  popupAnchor: [0, -34]
+});
+
+function escapeHtml(texto){
+  if(!texto) return '';
+  return String(texto)
+    .replace(/&/g,'&amp;')
+    .replace(/</g,'&lt;')
+    .replace(/>/g,'&gt;')
+    .replace(/"/g,'&quot;')
+    .replace(/'/g,'&#39;');
+}
+
+function somenteDigitos(texto){
+  return (texto || '').replace(/\D/g,'');
+}
+
+function linkWhatsapp(telefone){
+  const digitos = somenteDigitos(telefone);
+  if(!digitos) return null;
+  const comPais = digitos.startsWith('55') ? digitos : '55' + digitos;
+  return 'https://wa.me/' + comPais;
+}
+
+function linkDirecao(lat, lng){
+  if(lat == null || lng == null) return null;
+  return 'https://www.google.com/maps/dir/?api=1&destination=' + lat + ',' + lng;
+}
+
+function cardHtml(ig){
+  const endereco = [ig.endereco, [ig.cidade, ig.estado].filter(Boolean).join('/')].filter(Boolean).join(' — ');
+  const cep = ig.cep ? 'CEP ' + escapeHtml(ig.cep) : '';
+
+  const temCoord = typeof ig.latitude === 'number' && typeof ig.longitude === 'number';
+  const dir = temCoord ? linkDirecao(ig.latitude, ig.longitude) : null;
+  const wa = linkWhatsapp(ig.telefone);
+
+  let acoes = '';
+  if(dir){
+    acoes += '<a class="btn btn-outline" href="' + dir + '" target="_blank" rel="noopener noreferrer">🗺️ Como chegar</a>';
+  }
+  if(wa){
+    acoes += '<a class="btn btn-gold" href="' + wa + '" target="_blank" rel="noopener noreferrer">💬 WhatsApp</a>';
+  }
+
+  return (
+    '<div class="igreja">' +
+      '<h3>⛪ ' + escapeHtml(ig.nome) + '</h3>' +
+      '<p>' + escapeHtml(endereco) + '</p>' +
+      (cep ? '<p>' + cep + '</p>' : '') +
+      (ig.telefone ? '<p>📞 ' + escapeHtml(ig.telefone) + '</p>' : '') +
+      (acoes ? '<div class="acoes">' + acoes + '</div>' : '') +
+    '</div>'
+  );
+}
+
+function renderizar(igrejas){
+  const lista = document.getElementById('lista');
+
+  if(!igrejas || igrejas.length === 0){
+    lista.innerHTML = '<div class="vazio">Nenhuma igreja parceira cadastrada ainda. Em breve novas igrejas aparecerão aqui.</div>';
+    mapa.setView(CENTRO_PADRAO, 12);
+    return;
+  }
+
+  lista.innerHTML = igrejas.map(cardHtml).join('');
+
+  const marcadores = [];
+
+  igrejas.forEach(ig => {
+    if(typeof ig.latitude !== 'number' || typeof ig.longitude !== 'number') return;
+
+    const popup =
+      '<strong>' + escapeHtml(ig.nome) + '</strong><br>' +
+      escapeHtml(ig.endereco || '') + '<br>' +
+      escapeHtml([ig.cidade, ig.estado].filter(Boolean).join('/'));
+
+    const marcador = L.marker([ig.latitude, ig.longitude], { icon: iconeIgreja })
+      .addTo(mapa)
+      .bindPopup(popup);
+
+    marcadores.push(marcador);
+  });
+
+  if(marcadores.length === 1){
+    mapa.setView(marcadores[0].getLatLng(), 14);
+  } else if(marcadores.length > 1){
+    const grupo = L.featureGroup(marcadores);
+    mapa.fitBounds(grupo.getBounds().pad(0.3));
+  } else {
+    mapa.setView(CENTRO_PADRAO, 12);
+  }
+}
+
+async function carregar(){
+  try{
+    const resposta = await fetch('igrejas.json');
+    const dados = await resposta.json();
+    renderizar(dados.igrejas || []);
+  } catch(erro){
+    console.error(erro);
+    document.getElementById('lista').innerHTML =
+      '<div class="vazio">Não foi possível carregar as igrejas parceiras no momento. Tente novamente mais tarde.</div>';
+    mapa.setView(CENTRO_PADRAO, 12);
+  }
+}
+
+carregar();
+</script>
+
+</body>
+</html>

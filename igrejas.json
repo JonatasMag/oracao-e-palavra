@@ -1,0 +1,15 @@
+{
+  "igrejas": [
+    {
+      "nome": "Igreja Pentecostal Unida do Brasil - Fátima",
+      "endereco": "Rua Padre Augusto, 370 - Fátima",
+      "cidade": "Joinville",
+      "estado": "SC",
+      "cep": "89229-030",
+      "telefone": "47 9 9273-4973",
+      "latitude": -26.3230,
+      "longitude": -48.8158,
+      "coordenada_aproximada": true
+    }
+  ]
+}
