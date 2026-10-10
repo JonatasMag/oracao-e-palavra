@@ -737,6 +737,9 @@
   </footer>
 
 
+  <script src="config.js"></script>
+  <script src="cms.js"></script>
+<script>OP.configuracoes().then(function(c){var t=document.getElementById("topbarVersiculo");if(t&&c.versiculo_topo)t.textContent=c.versiculo_topo;});</script>
   <script>
 
     function toggleMenu(){
@@ -766,13 +769,22 @@ async function carregarBiblioteca(){
 
   try{
 
-    const resposta = await fetch('biblioteca.json');
+    let lista = await OP.materiais();
 
-    if(!resposta.ok){
-      throw new Error('Não foi possível carregar a biblioteca.');
+    if(lista){
+      lista = lista.map(function(m){
+        return {titulo:m.titulo, categoria:m.categoria, categoria_nome:m.categoria_nome,
+                descricao:m.descricao, capa:m.capa_url, pdf:m.pdf_url};
+      });
+    }else{
+      const resposta = await fetch('biblioteca.json');
+      if(!resposta.ok){
+        throw new Error('Não foi possível carregar a biblioteca.');
+      }
+      lista = (await resposta.json()).materiais;
     }
 
-    const dados = await resposta.json();
+    const dados = { materiais: lista };
 
     posts.innerHTML = '';
 

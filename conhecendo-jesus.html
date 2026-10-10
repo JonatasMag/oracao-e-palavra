@@ -71,7 +71,7 @@ footer{text-align:center;color:#91a3b9;font-size:.83rem;padding:30px 20px;backgr
 </style>
 </head>
 <body>
-<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+<div class="topbar" id="topbarVersiculo">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
 
 <nav>
   <div class="navin">
@@ -263,5 +263,10 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 </script>
 
+<script src="config.js"></script>
+<script src="cms.js"></script>
+<script>
+OP.configuracoes().then(function(c){var t=document.getElementById("topbarVersiculo");if(t&&c.versiculo_topo)t.textContent=c.versiculo_topo;});
+</script>
 </body>
 </html>

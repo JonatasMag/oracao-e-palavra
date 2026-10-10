@@ -32,6 +32,11 @@ O projeto reúne, em um único ecossistema gratuito:
 | `biblioteca/` | Arquivos dos materiais da Biblioteca: PDFs (`Estudos/`, `folhetos/`, `doutrina/`, `devocionais/`) e capas (`Estudos/capas/`). |
 | `igrejas.html` | Mapa interativo (Leaflet) com as igrejas parceiras do projeto: endereço, telefone/WhatsApp e rota no Google Maps. |
 | `igrejas.json` | Cadastro das igrejas parceiras exibidas em `igrejas.html` (nome, endereço, cidade, telefone, coordenadas). |
+| `config.js` | Endereço e chave pública do Supabase (único lugar para trocar de projeto). |
+| `cms.js` | Leitura pública do conteúdo publicado no painel (com `biblioteca.json`/`igrejas.json` como reserva). |
+| `cms-painel.js` | Abas de publicação do painel (somente administrador). |
+| `supabase/schema-cms.sql` | Cria tabelas, segurança e pasta de arquivos do painel (rodar no SQL Editor). |
+| `supabase/seed-conteudo.sql` | Copia o conteúdo atual dos `.json` para o painel (rodar uma vez). |
 | `central.html` | Tela de login da equipe (autenticação via Supabase Auth). |
 | `painel.html` | Painel administrativo: indicadores, listagem, filtro e gestão dos pedidos de oração. |
 | `robots.txt` | Regras de indexação para buscadores (bloqueia `central.html` e `painel.html`). |
@@ -102,6 +107,25 @@ O `index.html` conta com um chat de triagem (seção **Acolhimento**) que:
 - No tema "encontrar uma igreja", indica a página `igrejas.html` como caminho para o visitante localizar uma congregação parceira perto de si.
 
 > **Escopo do ministério:** o ecossistema é dedicado ao apoio espiritual. Encaminhamento a autoridades ou órgãos competentes acontece apenas em casos específicos, avaliados pela equipe — não há sinalização automática de risco no painel administrativo por decisão do projeto.
+
+---
+
+## Painel de publicação (sem mexer no código)
+
+Depois de rodar `supabase/schema-cms.sql` e `supabase/seed-conteudo.sql` no Supabase, o administrador publica tudo pelo `painel.html`:
+
+| Aba | O que faz |
+|---|---|
+| Biblioteca | Cria, edita, oculta e exclui estudos; envia PDF e capa direto do computador. |
+| Equipe | Convida pessoas, muda função, bloqueia e libera acessos. |
+| Igrejas | Cadastra igrejas parceiras (o botão acha latitude/longitude pelo endereço). |
+| Pregações | Gerencia os vídeos do YouTube mostrados na página inicial. |
+| Textos do site | Versículo da faixa superior, link do WhatsApp e do YouTube. |
+
+- Só `administrador` vê essas abas; `lider` e `intercessor` continuam vendo apenas os pedidos de oração.
+- Arquivos enviados ficam no Storage (bucket público `biblioteca`).
+- Se o Supabase estiver fora do ar ou as tabelas vazias, o site usa `biblioteca.json` e `igrejas.json` como reserva.
+- Novo membro: o administrador faz o convite na aba Equipe e cria o login em Authentication → Users; no primeiro acesso à Central a pessoa entra sozinha.
 
 ---
 

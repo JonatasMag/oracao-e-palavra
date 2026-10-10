@@ -156,7 +156,7 @@ footer a:hover{color:#fff}
 </style>
 </head>
 <body>
-<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+<div class="topbar" id="topbarVersiculo">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
 
 <nav>
   <div class="container navin">
@@ -209,6 +209,9 @@ footer a:hover{color:#fff}
   </div>
 </footer>
 
+<script src="config.js"></script>
+<script src="cms.js"></script>
+<script>OP.configuracoes().then(function(c){var t=document.getElementById("topbarVersiculo");if(t&&c.versiculo_topo)t.textContent=c.versiculo_topo;});</script>
 <script>
 
 window.toggleMenu = function(){
@@ -326,9 +329,12 @@ function renderizar(igrejas){
 
 async function carregar(){
   try{
-    const resposta = await fetch('igrejas.json');
-    const dados = await resposta.json();
-    renderizar(dados.igrejas || []);
+    let lista = await OP.igrejas();
+    if(!lista){
+      const resposta = await fetch('igrejas.json');
+      lista = (await resposta.json()).igrejas || [];
+    }
+    renderizar(lista);
   } catch(erro){
     console.error(erro);
     document.getElementById('lista').innerHTML =

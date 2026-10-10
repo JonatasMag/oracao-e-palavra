@@ -583,6 +583,31 @@ tr:hover td{
     margin-top:25px;
   }
 }
+
+/* ===== Abas de publicação ===== */
+.abas[hidden]{display:none}
+.abas{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 20px}
+.abas button{border:1px solid var(--border);background:#fff;color:var(--navy);padding:10px 16px;border-radius:999px;font-weight:700;font-size:14px;cursor:pointer}
+.abas button.ativa{background:var(--navy);color:#fff;border-color:var(--navy)}
+.cms-topo{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:20px;border-bottom:1px solid var(--border)}
+.cms-topo h2{margin:0;color:var(--navy);font-size:20px}
+#cmsConteudo{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);overflow:hidden}
+.cms-vazio{padding:30px;text-align:center;color:#667085}
+.cms-bloco{padding:20px;border-top:1px solid var(--border)}
+.cms-bloco h3{margin:0 0 8px;color:var(--navy)}
+.cms-dica{font-size:13px;color:#667085;line-height:1.5}
+.cms-acoes{white-space:nowrap}
+.cms-acoes .btn{padding:7px 12px;font-size:13px;margin-right:6px}
+.cms-linha{display:flex;gap:10px;flex-wrap:wrap}
+.cms-linha input,.cms-linha select,.cms-campo input,.cms-campo select,.cms-campo textarea{border:1px solid var(--border);border-radius:8px;padding:10px 12px;font-size:14px;font-family:inherit;width:100%;box-sizing:border-box}
+.cms-linha input,.cms-linha select{width:auto;flex:1;min-width:160px}
+.cms-campo{margin-bottom:14px}
+.cms-campo label{display:block;font-weight:700;font-size:13px;color:var(--navy);margin-bottom:5px}
+.cms-check{display:block;margin:6px 0 16px;font-weight:700;color:var(--navy)}
+.cms-arq{display:flex;flex-direction:column;gap:6px}
+.cms-aviso{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);padding:12px 20px;border-radius:10px;color:#fff;font-weight:700;z-index:2000;max-width:90vw}
+.cms-aviso.ok{background:#1f7a4d}.cms-aviso.erro{background:#b42318}
+#cmsForm{padding:22px}
 </style>
 </head>
 
@@ -618,6 +643,17 @@ tr:hover td{
     <h1>🙏 Central de Intercessão</h1>
     <p>Receba, acompanhe e direcione os pedidos de oração.</p>
   </div>
+
+  <nav id="abas" class="abas" hidden aria-label="Áreas do painel">
+    <button data-aba="pedidos" class="ativa">🙏 Pedidos de oração</button>
+    <button data-aba="materiais">📚 Biblioteca</button>
+    <button data-aba="equipe">👥 Equipe</button>
+    <button data-aba="igrejas">⛪ Igrejas</button>
+    <button data-aba="pregacoes">🎬 Pregações</button>
+    <button data-aba="textos">✍️ Textos do site</button>
+  </nav>
+  <div id="abaConteudo" hidden><div id="cmsConteudo"></div></div>
+  <div id="abaPedidos">
 
   <div id="avisoAcolhimento" class="acolhimento-aviso" aria-live="polite">
     Há um pedido aguardando acolhimento.
@@ -707,6 +743,7 @@ tr:hover td{
 
   </section>
 
+  </div>
 </main>
 
 <div class="footer">
@@ -1462,5 +1499,11 @@ setInterval(() => {
 
 </script>
 
+<div id="cmsAviso" class="cms-aviso" hidden></div>
+<div id="cmsModal" class="modal-backdrop"><div class="modal"><div class="modal-header"><h2 id="cmsFormTitulo"></h2></div>
+<form id="cmsForm"><div id="cmsCampos"></div>
+<div class="cms-linha" style="margin-top:16px"><button class="btn btn-gold">Salvar</button><button type="button" class="btn btn-outline" id="cmsCancelar">Cancelar</button></div></form></div></div>
+<script src="config.js"></script>
+<script type="module" src="cms-painel.js"></script>
 </body>
 </html>

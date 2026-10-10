@@ -764,6 +764,13 @@
 
 
           /*
+            Primeiro acesso: se o administrador convidou este e-mail
+            pelo painel, libera o acesso agora (ignora erro se o
+            recurso ainda não foi instalado no Supabase).
+          */
+          try { await supabase.rpc('op_reivindicar_convite'); } catch(e) { /* segue */ }
+
+          /*
             2. Verificar autorização
                na tabela equipe_oracao
           */

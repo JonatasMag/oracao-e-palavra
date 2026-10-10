@@ -186,7 +186,7 @@ footer a:hover{color:#fff}
 </style>
 </head>
 <body>
-<div class="topbar">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
+<div class="topbar" id="topbarVersiculo">“Mas nós perseveraremos na oração e no ministério da palavra.” — Atos 6:4</div>
 
 <nav>
   <div class="container navin">
@@ -268,7 +268,7 @@ footer a:hover{color:#fff}
         <div class="eyebrow">Comunidade Oração e Palavra</div>
         <h2>Receba uma Palavra de Deus todos os dias.</h2>
         <p>Entre na nossa comunidade do WhatsApp para receber mensagens, versículos, devocionais, convites para momentos de oração e conteúdos que apontam para Jesus.</p>
-        <a class="btn btn-gold" href="https://whatsapp.com/channel/0029VbDAvROKbYMThxZzgJ0v" target="_blank" rel="noopener noreferrer">Entrar na comunidade →</a>
+        <a class="btn btn-gold" id="linkComunidade" href="https://whatsapp.com/channel/0029VbDAvROKbYMThxZzgJ0v" target="_blank" rel="noopener noreferrer">Entrar na comunidade →</a>
       </div>
       <div class="qr"><img src="qr-comunidade.png" alt="QR Code da comunidade"></div>
     </div>
@@ -414,7 +414,7 @@ footer a:hover{color:#fff}
       <p>Área preparada para receber vídeos do YouTube, testemunhos, séries de mensagens e estudos bíblicos.</p>
     </div>
 
-<div class="video-grid">
+<div class="video-grid" id="gradePregacoes">
 
   <a class="video" href="https://www.youtube.com/@ProjetoOra%C3%A7%C3%A3oePalavra/featured" target="_blank" rel="noopener noreferrer">
     <small>PREGAÇÃO</small>
@@ -514,6 +514,23 @@ var Tawk_LoadStart = new Date();
 })();
 </script>
 
+<script src="config.js"></script>
+<script src="cms.js"></script>
+<script>
+(function(){
+  function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c];});}
+  OP.configuracoes().then(function(c){
+    var t=document.getElementById('topbarVersiculo'); if(t&&c.versiculo_topo) t.textContent=c.versiculo_topo;
+    var w=document.getElementById('linkComunidade'); if(w&&c.whatsapp_comunidade) w.href=c.whatsapp_comunidade;
+  });
+  OP.pregacoes().then(function(lista){
+    if(!lista) return;
+    document.getElementById('gradePregacoes').innerHTML=lista.map(function(p){
+      return '<a class="video" href="'+esc(p.url||'#')+'" target="_blank" rel="noopener noreferrer"><small>'+esc(p.tipo)+'</small><h3>'+esc(p.titulo)+'</h3><p>'+esc(p.descricao)+'</p></a>';
+    }).join('');
+  });
+})();
+</script>
 <script type="module">
 
 import { createClient } from
