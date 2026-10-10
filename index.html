@@ -81,6 +81,11 @@ h2{font-family:Georgia,serif;color:var(--navy);font-size:clamp(2rem,4vw,3.2rem);
 .video-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
 .video{background:#0b2345;color:#fff;border-radius:22px;overflow:hidden;min-height:230px;display:flex;flex-direction:column;justify-content:flex-end;padding:25px;position:relative}
 .video:before{content:"▶";position:absolute;top:22px;left:22px;width:54px;height:54px;border-radius:50%;background:rgba(255,255,255,.15);display:grid;place-items:center;font-size:1.2rem}
+.video.yt{cursor:pointer;background-size:cover;background-position:center;border:0;text-align:left;font:inherit;width:100%}
+.video.yt:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,35,69,.1),rgba(11,35,69,.88));z-index:0}
+.video.yt>*{position:relative;z-index:1}.video.yt:before{z-index:1;background:rgba(201,162,39,.95);color:#0b1f3a}
+.video.tocando{padding:0;min-height:0;aspect-ratio:16/9}.video.tocando:before{display:none}
+.video.tocando iframe{position:absolute;top:0;left:0;width:100%;height:100%;border:0}
 .video small{color:#c9d7e9}.video h3{margin:6px 0 0}
 .form-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;align-items:start}
 .form-card{background:#fff;border:1px solid var(--line);border-radius:26px;padding:30px;box-shadow:var(--shadow)}
@@ -525,9 +530,19 @@ var Tawk_LoadStart = new Date();
   });
   OP.pregacoes().then(function(lista){
     if(!lista) return;
-    document.getElementById('gradePregacoes').innerHTML=lista.map(function(p){
-      return '<a class="video" href="'+esc(p.url||'#')+'" target="_blank" rel="noopener noreferrer"><small>'+esc(p.tipo)+'</small><h3>'+esc(p.titulo)+'</h3><p>'+esc(p.descricao)+'</p></a>';
+    var grade=document.getElementById('gradePregacoes');
+    function idYoutube(u){var m=String(u||'').match(/(?:youtu\.be\/|[?&]v=|\/embed\/|\/shorts\/|\/live\/)([A-Za-z0-9_-]{11})/);return m?m[1]:null;}
+    grade.innerHTML=lista.map(function(p,i){
+      var id=idYoutube(p.url), corpo='<small>'+esc(p.tipo)+'</small><h3>'+esc(p.titulo)+'</h3><p>'+esc(p.descricao)+'</p>';
+      if(id) return '<button type="button" class="video yt" data-id="'+id+'" style="background-image:url(https://i.ytimg.com/vi/'+id+'/hqdefault.jpg)" aria-label="Assistir: '+esc(p.titulo)+'">'+corpo+'</button>';
+      return '<a class="video" href="'+esc(p.url||'#')+'" target="_blank" rel="noopener noreferrer">'+corpo+'</a>';
     }).join('');
+    grade.querySelectorAll('.yt').forEach(function(b){
+      b.addEventListener('click',function(){
+        b.className='video tocando'; b.removeAttribute('style');
+        b.innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/'+b.dataset.id+'?autoplay=1&rel=0" title="Vídeo" allow="autoplay; encrypted-media; picture-in-picture; fullscreen" allowfullscreen></iframe>';
+      });
+    });
   });
 })();
 </script>

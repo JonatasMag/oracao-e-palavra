@@ -48,7 +48,7 @@ const VISTAS = {
       { k: 'tipo', l: 'Etiqueta (ex.: PREGAÇÃO, ESTUDO BÍBLICO)', t: 'text', req: true },
       { k: 'titulo', l: 'Título', t: 'text', req: true },
       { k: 'descricao', l: 'Frase curta', t: 'text' },
-      { k: 'url', l: 'Link do vídeo no YouTube', t: 'text' },
+      { k: 'url', l: 'Link do vídeo no YouTube (cole o endereço do vídeo para ele tocar no site)', t: 'text' },
       { k: 'ordem', l: 'Ordem (0 aparece primeiro)', t: 'number' },
       { k: 'publicado', l: 'Aparece no site', t: 'check' }
     ]
